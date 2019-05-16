@@ -1,6 +1,7 @@
 import {Injectable} from "@angular/core";
 import {CategoryService} from "./category.service";
 import {Observable} from "rxjs";
+import {CATEGORIES} from "./config";
 
 @Injectable()
 export class PortfolioService {
@@ -10,7 +11,7 @@ export class PortfolioService {
 
 	public getPortfolio() {
 		return Observable.create((observer) => {
-			this.categoryService.getResources("Portfolio").subscribe((portfolio) => {
+			this.categoryService.getResources(CATEGORIES.PROJECTS).subscribe((portfolio) => {
 				observer.next(portfolio);
 			});
 		});

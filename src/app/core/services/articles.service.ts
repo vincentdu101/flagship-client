@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ApiService } from './api.service';
 import { Article, ArticleListConfig } from '../models';
 import { map } from 'rxjs/operators';
+import { CATEGORIES } from './config';
 
 @Injectable()
 export class ArticlesService {
@@ -56,6 +57,10 @@ export class ArticlesService {
 
   unfavorite(slug): Observable<Article> {
     return this.apiService.delete('/articles/' + slug + '/favorite');
+  }
+
+  findByCategory(category: CATEGORIES): Observable<Article[]> {
+    return this.apiService.get("/articles?category=" + category);
   }
 
 

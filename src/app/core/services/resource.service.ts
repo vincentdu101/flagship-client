@@ -6,7 +6,7 @@ import {Observer} from "rxjs/Observer";
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/startWith';
 import {CategoryService} from "./category.service";
-import {Config} from "./config";
+import {Config, CATEGORIES} from "./config";
 
 @Injectable() 
 export class ResourceService {
@@ -23,15 +23,7 @@ export class ResourceService {
 		});
 	}
 
-	private generatePostUrlParams(resource): any {
-		resource.category_id = this.categoryService.findCategoryByName(resource.category)._id;
-	} 
-
-	private fetchResources(resourceCategory, options): Observable<any> {
-		return this.apiService.get(this.config.serverArticlesPath + resourceCategory._id + "&name=" + options.name);
-	}
-
-	public getAllTypeResources(type: string, options = {name: undefined}): Observable<any> {
+	public getAllTypeResources(type: CATEGORIES, options = {name: undefined}): Observable<any> {
 		return Observable.create((observer) => {
 			this.categoryService.getResources(type, "&name=" + options.name).subscribe((resources) => {
 				observer.next(resources);

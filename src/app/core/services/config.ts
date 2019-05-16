@@ -41,11 +41,10 @@ export interface IArticle {
 	created_at?: Date;
 }
 
-export interface ICategory {
-	_id: string;
-	name: string;
-	description: string;
-	created_at: Date;
+export enum CATEGORIES {
+	SKILLS = <any>"skills",
+	PROJECTS = <any>"projects",
+	SLIDESHOW = <any>"slideshow"
 }
 
 export interface ISkill {
