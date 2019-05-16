@@ -35,37 +35,21 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     // Retreive the prefetched article
-    this.route.data.subscribe(
-      (data: { article: Article }) => {
-        this.article = data.article;
-
-        // Load the comments on this article
-        this.populateComments();
-      }
-    );
+    this.route.params.subscribe((params) => {
+        this.articlesService.get(params.slug).subscribe((data) => {
+            console.log(data);
+            this.article = data;
+        });
+    });
 
     // Load the current user's data
-    this.userService.currentUser.subscribe(
-      (userData: User) => {
-        this.currentUser = userData;
+    // this.userService.currentUser.subscribe(
+    //   (userData: User) => {
+    //     this.currentUser = userData;
 
-        this.canModify = (this.currentUser.username === this.article.author.username);
-      }
-    );
-  }
-
-  onToggleFavorite(favorited: boolean) {
-    this.article.favorited = favorited;
-
-    if (favorited) {
-      this.article.favoritesCount++;
-    } else {
-      this.article.favoritesCount--;
-    }
-  }
-
-  onToggleFollowing(following: boolean) {
-    this.article.author.following = following;
+    //     this.canModify = (this.currentUser.username === this.article.author.username);
+    //   }
+    // );
   }
 
   deleteArticle() {
@@ -75,40 +59,6 @@ export class ArticleComponent implements OnInit {
       .subscribe(
         success => {
           this.router.navigateByUrl('/');
-        }
-      );
-  }
-
-  populateComments() {
-    this.commentsService.getAll(this.article.slug)
-      .subscribe(comments => this.comments = comments);
-  }
-
-  addComment() {
-    this.isSubmitting = true;
-    this.commentFormErrors = {};
-
-    const commentBody = this.commentControl.value;
-    this.commentsService
-      .add(this.article.slug, commentBody)
-      .subscribe(
-        comment => {
-          this.comments.unshift(comment);
-          this.commentControl.reset('');
-          this.isSubmitting = false;
-        },
-        errors => {
-          this.isSubmitting = false;
-          this.commentFormErrors = errors;
-        }
-      );
-  }
-
-  onDeleteComment(comment) {
-    this.commentsService.destroy(comment.id, this.article.slug)
-      .subscribe(
-        success => {
-          this.comments = this.comments.filter((item) => item !== comment);
         }
       );
   }

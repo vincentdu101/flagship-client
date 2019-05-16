@@ -29,19 +29,19 @@ export class ArticlesService {
     );
   }
 
-  get(slug): Observable<Article> {
-    return this.apiService.get('/articles/' + slug)
-      .pipe(map(data => data.article));
+  get(_id): Observable<Article> {
+    return this.apiService.get('/articles/' + _id)
+      .pipe();
   }
 
-  destroy(slug) {
-    return this.apiService.delete('/articles/' + slug);
+  destroy(_id) {
+    return this.apiService.delete('/articles/' + _id);
   }
 
   save(article): Observable<Article> {
     // If we're updating an existing article
-    if (article.slug) {
-      return this.apiService.put('/articles/' + article.slug, {article: article})
+    if (article._id) {
+      return this.apiService.put('/articles/' + article._id, {article: article})
         .pipe(map(data => data.article));
 
     // Otherwise, create a new article
@@ -51,12 +51,12 @@ export class ArticlesService {
     }
   }
 
-  favorite(slug): Observable<Article> {
-    return this.apiService.post('/articles/' + slug + '/favorite');
+  favorite(_id): Observable<Article> {
+    return this.apiService.post('/articles/' + _id + '/favorite');
   }
 
-  unfavorite(slug): Observable<Article> {
-    return this.apiService.delete('/articles/' + slug + '/favorite');
+  unfavorite(_id): Observable<Article> {
+    return this.apiService.delete('/articles/' + _id + '/favorite');
   }
 
   findByCategory(category: CATEGORIES): Observable<Article[]> {
