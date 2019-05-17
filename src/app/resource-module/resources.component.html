@@ -1,0 +1,31 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Description</th>
+    <th scope="col">Created</th>
+    <th scope="col">Category</th>
+    <th scope="col">Options</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let article of resources; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ article.name }}
+    </td>
+    <td>{{ article.description }}</td>
+    <td>{{ article.created_at }}</td>
+    <td>{{ article.category }}</td>
+    <td>
+      <button class="btn btn-outline-primary"
+              [routerLink]="['/resource', article._id]"      
+      >
+            Edit
+        </button>
+      <button class="btn btn-outline-primary">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

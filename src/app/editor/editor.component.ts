@@ -29,7 +29,7 @@ export class EditorComponent implements OnInit {
     });
 
     // Initialized tagList as empty array
-    this.article.tagList = [];
+    // this.article.tagList = [];
 
     // Optional: subscribe to value changes on the form
     // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
@@ -49,15 +49,15 @@ export class EditorComponent implements OnInit {
     // retrieve tag control
     const tag = this.tagField.value;
     // only add tag if it does not exist yet
-    if (this.article.tagList.indexOf(tag) < 0) {
-      this.article.tagList.push(tag);
-    }
+    // if (this.article.tagList.indexOf(tag) < 0) {
+    //   this.article.tagList.push(tag);
+    // }
     // clear the input
     this.tagField.reset('');
   }
 
   removeTag(tagName: string) {
-    this.article.tagList = this.article.tagList.filter(tag => tag !== tagName);
+    // this.article.tagList = this.article.tagList.filter(tag => tag !== tagName);
   }
 
   submitForm() {
@@ -68,7 +68,7 @@ export class EditorComponent implements OnInit {
 
     // post the changes
     this.articlesService.save(this.article).subscribe(
-      article => this.router.navigateByUrl('/article/' + article.slug),
+      article => this.router.navigateByUrl('/article/' + article._id),
       err => {
         this.errors = err;
         this.isSubmitting = false;

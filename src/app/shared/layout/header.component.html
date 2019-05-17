@@ -13,7 +13,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" [hidden]="isAuthenticated">
         <a class="nav-link"
           routerLink="/login"
           routerLinkActive="active">
@@ -21,11 +21,19 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" [hidden]="isAuthenticated">
         <a class="nav-link"
           routerLink="/register"
           routerLinkActive="active">
           Sign up
+        </a>
+      </li>
+
+      <li class="nav-item" [hidden]="!isAuthenticated || !adminRole">
+        <a class="nav-link"
+          routerLink="/resource"
+          routerLinkActive="active">
+          Resources
         </a>
       </li>
 

@@ -13,7 +13,7 @@ export class ArticlesService {
     private apiService: ApiService
   ) {}
 
-  query(config: ArticleListConfig): Observable<Article[]> {
+  query(): Observable<Article[]> {
     // Convert any filters over to Angular's URLSearchParams
     const params = {};
 
@@ -24,7 +24,7 @@ export class ArticlesService {
 
     return this.apiService
     .get(
-      '/articles' + ((config.type === 'feed') ? '/feed' : ''),
+      '/articles',
       new HttpParams({ fromObject: params })
     );
   }

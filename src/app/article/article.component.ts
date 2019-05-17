@@ -36,8 +36,7 @@ export class ArticleComponent implements OnInit {
   ngOnInit() {
     // Retreive the prefetched article
     this.route.params.subscribe((params) => {
-        this.articlesService.get(params.slug).subscribe((data) => {
-            console.log(data);
+        this.articlesService.get(params._id).subscribe((data) => {
             this.article = data;
         });
     });
@@ -55,7 +54,7 @@ export class ArticleComponent implements OnInit {
   deleteArticle() {
     this.isDeleting = true;
 
-    this.articlesService.destroy(this.article.slug)
+    this.articlesService.destroy(this.article._id)
       .subscribe(
         success => {
           this.router.navigateByUrl('/');

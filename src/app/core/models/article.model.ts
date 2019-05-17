@@ -1,12 +1,12 @@
 import { Profile } from './profile.model';
 
 export interface Article {
-  slug: string;
-  title: string;
+  _id: string;
+  name: string;
   description: string;
   body: string;
-  tagList: string[];
-  createdAt: string;
+  category: string;
+  crated_at: string;
   updatedAt: string;
   favorited: boolean;
   favoritesCount: number;

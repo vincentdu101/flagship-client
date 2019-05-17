@@ -1,0 +1,80 @@
+<div class="container-fluid top-buffer">
+
+	<h4>Edit Project</h4>
+	
+	<form [formGroup]="resourceForm">
+		<div class="row">
+			<div class="col-md-12 col-lg-5 card">
+				<div class="row padding-top-form-buffer">
+					<div class="col-xs-12 col-sm-3">
+						Name
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<input 	type="text" 
+								class="form-control" 
+								[(ngModel)]="name" 
+								name="name" 
+								formControlName="name"
+								[value]="getResourceValue('name')" />
+					</div>				
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Description
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<textarea 	class="form-control" 
+								[(ngModel)]="description" 
+								name="description" 
+								formControlName="description"
+								[value]="getResourceValue('description')"
+								rows="10">
+						</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Category
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<div class="btn-group" dropdown>
+						  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+						    {{getSelectedCategoryName()}} <span class="caret"></span>
+						  </button>
+						  <ul *dropdownMenu class="dropdown-menu" role="menu">
+						    <li role="menuitem" 
+						    	*ngFor="let category of categories">
+						    	<a class="dropdown-item"
+						    	   [ngClass]="matchCategorySelected(category)"
+						    	   (click)="updateCategory(category)">{{category.name}}
+						    	</a>
+						    </li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Caption File Name
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<input 	type="text" 
+								class="form-control" 
+								[(ngModel)]="image" 
+								name="image" 
+								formControlName="image"
+								[value]="getResourceValue('image')" />
+					</div>
+				</div>		
+			</div>
+			<div class="col-md-12 col-lg-7 panel panel-default editor-preview-section">
+				<div [froalaEditor] [(froalaModel)]="editorBody"></div>
+			</div>
+		</div>
+		<div class="row col-xs-12 submit-row-buffer">
+			<button (click)="saveProject()" class="btn btn-primary">Save</button>		
+			<button (click)="cancel()" class="btn btn-default">Cancel</button>	
+		</div>
+	</form>
+
+</div>

@@ -1,23 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
-import { User, UserService } from '../../core';
+import { User, SessionService } from "../../core";
 
 @Component({
-  selector: 'app-layout-header',
-  templateUrl: './header.component.html'
+  selector: "app-layout-header",
+  templateUrl: "./header.component.html"
 })
 export class HeaderComponent implements OnInit {
+
+  public currentUser: User;
+  public adminRole: boolean;
+  public isAuthenticated: boolean;
+
   constructor(
-    private userService: UserService
+    private sessionService: SessionService
   ) {}
 
-  currentUser: User;
-
   ngOnInit() {
-    this.userService.currentUser.subscribe(
-      (userData) => {
+    this.sessionService.currentUser.subscribe((userData) => {
         this.currentUser = userData;
-      }
-    );
+    });
+
+    this.sessionService.isAuthenticated.subscribe((auth) => {
+      this.isAuthenticated = auth;
+    })
+
+    this.sessionService.isRoleSaved.subscribe((role) => {
+      this.adminRole = role;
+    });
   }
 }

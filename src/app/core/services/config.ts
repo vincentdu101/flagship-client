@@ -1,4 +1,5 @@
 import {Injectable} from "@angular/core";
+import { User } from "../models";
 
 @Injectable() 
 export class Config {
@@ -25,9 +26,11 @@ export class Config {
 	
 }
 
-export interface IUserToken {
+export interface IUserConfig {
 	auth: boolean;
 	token: string;
+	user: User;
+	role: string;
 }
 
 export interface IArticle {
