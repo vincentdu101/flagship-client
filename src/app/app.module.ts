@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from '@angular/platform-browser';
 
-import {FroalaEditorModule, FroalaViewModule} from "angular-froala-wysiwyg";
+import {HttpClientModule} from "@angular/common/http";
+import {AngularEditorModule} from "@kolkov/angular-editor";
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
@@ -24,8 +25,8 @@ import { CoreModule } from './core/core.module';
     AuthModule,
     AppRoutingModule,
     NgbModule,
-    FroalaEditorModule.forRoot(),
-    FroalaViewModule.forRoot()
+    HttpClientModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

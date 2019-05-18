@@ -21,12 +21,9 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css",
-              "./node_modules/froala-editor/css/froala_editor.pkgd.min.css",
-              "./node_modules/froala-editor/css/froala_style.min.css"
+              "src/styles.css"
             ],
             "scripts": [
-              "./node_modules/froala-editor/js/froala_editor.pkgd.min.js"
             ]
           },
           "configurations": {
