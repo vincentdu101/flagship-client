@@ -6,6 +6,7 @@ export interface Article {
     description: string;
     body: string;
     category: string;
+    image: string;
     crated_at: string;
     updatedAt: string;
     favorited: boolean;

@@ -12,7 +12,6 @@
 					<div class="col-xs-12 col-sm-9">
 						<input 	type="text" 
 								class="form-control" 
-								[(ngModel)]="name" 
 								name="name" 
 								formControlName="name"
 								[value]="getResourceValue('name')" />
@@ -24,7 +23,6 @@
 					</div>
 					<div class="col-xs-12 col-sm-9">
 						<textarea 	class="form-control" 
-								[(ngModel)]="description" 
 								name="description" 
 								formControlName="description"
 								[value]="getResourceValue('description')"
@@ -37,19 +35,13 @@
 						Category
 					</div>
 					<div class="col-xs-12 col-sm-9">
-						<div class="btn-group" dropdown>
-						  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-						    {{getSelectedCategoryName()}} <span class="caret"></span>
-						  </button>
-						  <ul *dropdownMenu class="dropdown-menu" role="menu">
-						    <li role="menuitem" 
-						    	*ngFor="let category of categories">
-						    	<a class="dropdown-item"
-						    	   [ngClass]="matchCategorySelected(category)"
-						    	   (click)="updateCategory(category)">{{category.name}}
-						    	</a>
-						    </li>
-						  </ul>
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" 
+									class="btn btn-secondary"
+									*ngFor="let cat of categories"
+									[ngClass]="categorySelected(cat)">
+									{{parseCategory(cat)}}
+							</button>
 						</div>
 					</div>
 				</div>
@@ -60,7 +52,6 @@
 					<div class="col-xs-12 col-sm-9">
 						<input 	type="text" 
 								class="form-control" 
-								[(ngModel)]="image" 
 								name="image" 
 								formControlName="image"
 								[value]="getResourceValue('image')" />
@@ -68,7 +59,9 @@
 				</div>		
 			</div>
 			<div class="col-md-12 col-lg-7 panel panel-default editor-preview-section">
-				<angular-editor [(ngModel)]="body"></angular-editor>
+				<angular-editor formControlName="body"
+								name="body"
+								[config]="config"></angular-editor>
 			</div>
 		</div>
 		<div class="row col-xs-12 submit-row-buffer">

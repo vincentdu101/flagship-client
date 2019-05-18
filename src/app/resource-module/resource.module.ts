@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {SharedModule} from "../shared";
-
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import { ResourcesComponent } from "./resources.component";
@@ -15,7 +15,9 @@ import {ArticleResolver} from "../article/article-resolver.service";
         ResourceRoutingModule,
         NgbModule,
         HttpClientModule,
-        AngularEditorModule
+        AngularEditorModule,
+        FormsModule, 
+        ReactiveFormsModule
     ],
     declarations: [ResourcesComponent, ResourceComponent],
     providers: [ArticleResolver]

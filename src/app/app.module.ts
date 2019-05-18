@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from '@angular/platform-browser';
-
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import { AppComponent } from './app.component';
@@ -26,7 +26,9 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    AngularEditorModule
+    AngularEditorModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
