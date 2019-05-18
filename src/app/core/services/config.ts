@@ -45,9 +45,9 @@ export interface IArticle {
 }
 
 export enum CATEGORIES {
-	SKILLS = <any>"skills",
-	PROJECTS = <any>"projects",
-	SLIDESHOW = <any>"slideshow"
+	SKILLS = "skills",
+	PROJECTS = "projects",
+	SLIDESHOW = "slideshow"
 }
 
 export interface ISkill {
