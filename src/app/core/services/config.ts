@@ -13,15 +13,15 @@ export class Config {
 	}
 
 	public get serverArticlesPath(): string {
-		return this.serverHost + "articles";
+		return "/articles";
 	}
 
 	public get serverCategoriesPath(): string {
-		return this.serverHost + "categories";
+		return "/categories";
 	}
 
 	public get serverSkillsPath(): string {
-		return this.serverHost + "skills";
+		return "/skills";
 	}
 	
 }

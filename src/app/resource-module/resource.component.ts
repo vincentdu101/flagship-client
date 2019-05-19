@@ -101,6 +101,11 @@ export class ResourceComponent implements OnInit {
         }
     }
 
+    public selectCategory(cat: string): void {
+        this.resourceForm.controls.category.setValue(cat);
+        this.resource.category = cat;
+    }
+
     public parseCategory(cat: string): string {
         return cat.charAt(0).toUpperCase() + cat.slice(1);
     }
@@ -112,7 +117,7 @@ export class ResourceComponent implements OnInit {
 		this.resource.category = this.viewService.getResourceValue(this.resourceForm, "category");
 		this.resource.body = this.viewService.getResourceValue(this.resourceForm, "body");
 		this.resourceService.saveResource(this.resource).subscribe((data) => {
-			this.router.navigateByUrl("/resource");
+            this.router.navigateByUrl("/resource");
 		});
 	}
 

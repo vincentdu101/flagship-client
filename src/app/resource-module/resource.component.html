@@ -39,6 +39,7 @@
 							<button type="button" 
 									class="btn btn-secondary"
 									*ngFor="let cat of categories"
+									(click)="selectCategory(cat)"
 									[ngClass]="categorySelected(cat)">
 									{{parseCategory(cat)}}
 							</button>

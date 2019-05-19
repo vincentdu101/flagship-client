@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import { ResourcesComponent } from "./resources.component";
 import { ResourceComponent } from "./resource.component";
+import { CreateResourceComponent } from "./create.resource.component";
 import {ResourceRoutingModule} from "./resource-routing.module";
 import {ArticleResolver} from "../article/article-resolver.service";
 
@@ -19,7 +20,7 @@ import {ArticleResolver} from "../article/article-resolver.service";
         FormsModule, 
         ReactiveFormsModule
     ],
-    declarations: [ResourcesComponent, ResourceComponent],
+    declarations: [ResourcesComponent, ResourceComponent, CreateResourceComponent],
     providers: [ArticleResolver]
 })
 export class ResourceModule {}

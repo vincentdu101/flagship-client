@@ -24,8 +24,13 @@
       >
             Edit
         </button>
-      <button class="btn btn-outline-primary">Delete</button>
+      <button class="btn btn-outline-primary"
+              (click)="deleteResource(article._id)">Delete</button>
     </td>
   </tr>
   </tbody>
 </table>
+<button class="btn btn-primary"
+        [routerLink]="['/resource', 'new']">
+  Add
+</button>
