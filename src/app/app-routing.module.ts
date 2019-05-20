@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: "resource",
-    loadChildren: "./resource-module/resource.module#ResourceModule"
+    loadChildren: "./resource/resource.module#ResourceModule"
   }
 ];
 

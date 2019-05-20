@@ -1,0 +1,74 @@
+<div class="container-fluid top-buffer">
+
+	<h4>Edit Article</h4>
+	
+	<form [formGroup]="resourceForm">
+		<div class="row">
+			<div class="col-md-12 col-lg-5 card">
+				<div class="row padding-top-form-buffer">
+					<div class="col-xs-12 col-sm-3">
+						Name
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<input 	type="text" 
+								class="form-control" 
+								name="name" 
+								formControlName="name"
+								[value]="getResourceValue('name')" />
+					</div>				
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Description
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<textarea 	class="form-control" 
+								name="description" 
+								formControlName="description"
+								[value]="getResourceValue('description')"
+								rows="10">
+						</textarea>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Category
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<div class="btn-group" role="group" aria-label="Basic example">
+							<button type="button" 
+									class="btn btn-secondary"
+									*ngFor="let cat of categories"
+									(click)="selectCategory(cat)"
+									[ngClass]="categorySelected(cat)">
+									{{parseCategory(cat)}}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						Caption File Name
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<input 	type="text" 
+								class="form-control" 
+								name="image" 
+								formControlName="image"
+								[value]="getResourceValue('image')" />
+					</div>
+				</div>		
+			</div>
+			<div class="col-md-12 col-lg-7 panel panel-default editor-preview-section">
+				<angular-editor formControlName="body"
+								name="body"
+								[config]="config"></angular-editor>
+			</div>
+		</div>
+		<div class="row col-xs-12 submit-row-buffer">
+			<button (click)="saveProject()" class="btn btn-primary">Save</button>		
+			<button (click)="cancel()" class="btn btn-default">Cancel</button>	
+		</div>
+	</form>
+
+</div>

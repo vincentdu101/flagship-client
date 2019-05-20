@@ -15,13 +15,7 @@ const routes: Routes = [
     },
     {
         path: "",
-        component: ResourcesComponent,
-        children: [
-            {
-                path: ":new",
-                component: CreateResourceComponent
-            }
-        ]
+        component: ResourcesComponent
     }
 ];
 

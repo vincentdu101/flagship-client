@@ -14,6 +14,7 @@ import {
 } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { ResourceModule } from './resource/resource.module';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -28,7 +29,8 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     AngularEditorModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ResourceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

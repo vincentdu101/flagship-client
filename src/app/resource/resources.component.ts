@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ArticlesService, ResourceService} from "../core";
 import { Article } from '../core/models';
+import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-resources',
@@ -10,12 +11,12 @@ import { Article } from '../core/models';
 export class ResourcesComponent implements OnInit {
 
     private resources: Article[];
+    public showCreationPage = false;
 
     constructor(
         private articlesService: ArticlesService,
         private resourceService: ResourceService
     ) {
-
     }
 
     ngOnInit() {
@@ -32,6 +33,17 @@ export class ResourcesComponent implements OnInit {
         this.resourceService.deleteResource(id).subscribe(() => {
             this.updateResourceList();
         });
+    }
+
+    public closeNewView(article: Article): void {
+        if (!!article) {
+            this.updateResourceList();
+        }
+        this.showCreationPage = false;
+    }
+
+    public addNewResource(): void {
+        this.showCreationPage = true;
     }
 
 }
