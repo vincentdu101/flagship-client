@@ -47,18 +47,22 @@ export class CreateResourceComponent implements OnInit {
         private router: Router,
         private resourceService: ResourceService
     ) {
-        this.convertCategoriesToList();   
+        this.convertCategoriesToList();
     }
 
     ngOnInit() {
+        this.initResource();
+        this.initNewForm();
+    }
+
+    private initResource(): void {
         this.resource = {
             name: "",
             description: "",
             body: "",
             category: "",
             image: ""
-        }
-        this.initNewForm();
+        };
     }
 
     private convertCategoriesToList(): void {
@@ -109,12 +113,16 @@ export class CreateResourceComponent implements OnInit {
         this.resource.category = this.viewService.getResourceValue(this.resourceForm, "category");
         this.resource.body = this.viewService.getResourceValue(this.resourceForm, "body");
         this.resourceService.createResource(this.resource).subscribe((data) => {
+            this.initResource();
+            this.initNewForm();
             this.close.emit(this.resource);
         });
     }
 
 
     public cancel(): void {
+        this.initResource();
+        this.initNewForm();
         this.close.emit();
     }
 }
