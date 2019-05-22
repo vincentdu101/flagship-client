@@ -1,4 +1,4 @@
-import { Component, AfterContentInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterContentInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
 import * as d3 from "d3";
 
 @Component({
@@ -15,9 +15,8 @@ export class HomeBarGraphComponent implements AfterContentInit {
     loader = true;
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
-    private xAxis;
     private yAxis;
-    private colorScale;
+    public selected;
 
     constructor() {
         this.determineHeight = this.determineHeight.bind(this);
@@ -84,6 +83,8 @@ export class HomeBarGraphComponent implements AfterContentInit {
         }).on("mouseout", (element) => {
             d3.select("#" + element.body)
                 .attr("fill", element.body);
+        }).on("click", (element) => {
+            this.selected = element;
         });
     }
 
@@ -95,12 +96,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
         svg.attr("width", this.width)
             .attr("height", this.determineHeight());
-
-        this.xAxis = (g) => g
-            .attr("transform", `translate(0, ${this.margin.top})`)
-            .call(d3.axisTop(this.x).ticks(10))
-            .call(g => g.select(".domain").remove());
-
+            
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
             .style("font-size", "12px")

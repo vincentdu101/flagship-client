@@ -1,7 +1,27 @@
 <div class="container">
-    <div class="bar-chart-view">
-        <svg    class="bar-chart"
-                #barChart>
-        </svg>
+    <div class="row">
+        <div class="col-xs-12">
+          <div class="bar-chart-view">
+              <svg    class="bar-chart"
+                      #barChart>
+              </svg>
+          </div>
+        </div>
+        <div class="col-xs-12" [hidden]="!selected">
+          <div class="card">
+              <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <img src="..." class="card-img-top" alt="...">
+                </div>
+                <div class="col-xs-12 col-sm-8">
+                    <div class="card-body">
+                      <h5 class="card-title">{{selected.name}}</h5>
+                      <p class="card-text">{{selected.description}}</p>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
     </div>
 </div>
+
