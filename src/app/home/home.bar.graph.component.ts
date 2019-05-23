@@ -16,7 +16,9 @@ export class HomeBarGraphComponent implements AfterContentInit {
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;
-    public selected;
+    public selected = {
+        name: "Select a bar to learn more", description: ""
+    };
 
     constructor() {
         this.determineHeight = this.determineHeight.bind(this);
@@ -96,7 +98,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
         svg.attr("width", this.width)
             .attr("height", this.determineHeight());
-            
+
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
             .style("font-size", "12px")

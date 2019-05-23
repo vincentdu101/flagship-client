@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { HomeModule } from './home/home.module';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import {
   FooterComponent,
   HeaderComponent,
@@ -30,7 +32,9 @@ import { ResourceModule } from './resource/resource.module';
     AngularEditorModule,
     FormsModule, 
     ReactiveFormsModule,
-    ResourceModule
+    ResourceModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

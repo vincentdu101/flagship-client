@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <ngb-carousel *ngIf="cards">
+      <ng-template ngbSlide *ngFor="let slide of cards">
+        <mat-grid-list cols = "3" rowHeight = "200px">
+          <mat-grid-tile 
+          [colspan] = "1"
+          [rowspan] = "2" class="my-grid">
+          
+            <div class="card">
+              <img src="https://via.placeholder.com/300" class="card-img-top" />
+              <h3>{{slide[0].name}}</h3>
+              <p>{{slide[0].description}}</p>
+            </div>
+
+          </mat-grid-tile>
+          <mat-grid-tile 
+          [colspan] = "1"
+          [rowspan] = "2" class="my-grid">
+          
+            <div class="card">
+              <img src="https://via.placeholder.com/300" class="card-img-top" />
+              <h3>{{slide[1].name}}</h3>
+              <p>{{slide[1].description}}</p>
+            </div>
+
+          </mat-grid-tile>
+          <mat-grid-tile 
+          [colspan] = "1"
+          [rowspan] = "2" class="my-grid">
+          
+            <div class="card">
+              <img src="https://via.placeholder.com/300" class="card-img-top" />
+              <h3>{{slide[2].name}}</h3>
+              <p>{{slide[2].description}}</p>
+            </div>
+
+          </mat-grid-tile>
+        </mat-grid-list>
+      </ng-template>
+    </ngb-carousel>
+</div>
