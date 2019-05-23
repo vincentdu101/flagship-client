@@ -47,7 +47,8 @@ export interface IArticle {
 export enum CATEGORIES {
 	SKILLS = "skills",
 	PROJECTS = "projects",
-	SLIDESHOW = "slideshow"
+	SLIDESHOW = "slideshow",
+	TECHNOLOGY = "technology"
 }
 
 export interface ISkill {

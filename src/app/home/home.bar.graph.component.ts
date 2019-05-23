@@ -1,18 +1,19 @@
-import { Component, AfterContentInit, Output, ViewChild, ElementRef, EventEmitter } from '@angular/core';
+import { Component, AfterContentInit, Output, ViewChild, ElementRef, EventEmitter } from "@angular/core";
 import * as d3 from "d3";
+import { Article, ArticlesService, CATEGORIES } from "../core";
 
 @Component({
-  selector: 'home-bar-graph',
-  templateUrl: './home.bar.graph.component.html',
-  styleUrls: ['./home.bar.graph.component.css']
+  selector: "home-bar-graph",
+  templateUrl: "./home.bar.graph.component.html",
+  styleUrls: ["./home.bar.graph.component.css"]
 })
 export class HomeBarGraphComponent implements AfterContentInit {
 
     @ViewChild("bar-chart") barChart: ElementRef; 
-    width = 900;
-    margin = {top: 30, right: 20, bottom: 10, left: 100};
-    data = [];
-    loader = true;
+    public width = 900;
+    public margin = {top: 30, right: 20, bottom: 10, left: 100};
+    public data: Article[] = [];
+    public loader = true;
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;
@@ -20,7 +21,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         name: "Select a bar to learn more", description: ""
     };
 
-    constructor() {
+    constructor(private articlesService: ArticlesService) {
         this.determineHeight = this.determineHeight.bind(this);
         this.getXScaleLinear = this.getXScaleLinear.bind(this);
         this.getYScaleLinear = this.getYScaleLinear.bind(this);
@@ -28,19 +29,10 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        this.data = [
-            {name: "TypeScript", description: 1000, body: "blue"},
-            {name: "D3", description: 1060, body: "green"},
-            {name: "JavaScript", description: 2000, body: "yellow"},
-            {name: "Java", description: 6000, body: "black"},
-            {name: "Python", description: 1000, body: "red"},
-            {name: "Ruby on Rails", description: 1060, body: "orange"},
-            {name: "AI", description: 2000, body: "pink"},
-            {name: "Unity3D", description: 6000, body: "aqua"},
-            {name: "C#", description: 2000, body: "purple"},
-            {name: "CSS3", description: 6000, body: "gray"}
-        ];
-        this.createBarChart();
+        this.articlesService.findByCategory(CATEGORIES.TECHNOLOGY).subscribe((data) => {
+            this.data = data;
+            this.createBarChart();
+        });
     }
 
     public determineHeight(): number {
@@ -52,7 +44,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
     private getXScaleLinear(): d3.ScaleLinear<number, number> {
         return d3.scaleLinear()
-                .domain([0, d3.max(this.data, d => d.description + 1000)])
+                .domain([0, d3.max(this.data, d => parseInt(d.description, 10))])
                 .range([this.margin.left, this.width]);
     }
 
@@ -69,7 +61,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 .data(this.data)
             .enter().append("rect")
                 .style("pointer-events", "all")
-                .attr("id", (d) => d.body)
+                .attr("id", (d) => d.name)
                 .attr("width", 0)
                 .attr("x", this.x(0))
                 .attr("y", d => this.y(d.name))
@@ -81,9 +73,9 @@ export class HomeBarGraphComponent implements AfterContentInit {
             .delay((d, i) => i * 300);
 
         rect.on("mouseover", (element) => {
-            d3.select("#" + element.body).attr("fill", "red");
+            d3.select("#" + element.name).attr("fill", "red");
         }).on("mouseout", (element) => {
-            d3.select("#" + element.body)
+            d3.select("#" + element.name)
                 .attr("fill", element.body);
         }).on("click", (element) => {
             this.selected = element;
@@ -118,7 +110,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
             .selectAll("text")
                 .data(this.data)
             .enter().append("text")
-                .attr("x", d => this.x(d.description) - 4)
+                .attr("x", d => this.x(parseInt(d.description, 10)) - 4)
                 .attr("y", d => this.y(d.name) + this.y.bandwidth() / 2)
                 .attr("dy", "0.35em")
                 .text(d => d.description);    
