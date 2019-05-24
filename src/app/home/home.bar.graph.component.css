@@ -1,3 +1,4 @@
-.domain {
-    display: none;
+.bar-container {
+    height: 600px;
+    border: 1px solid black;
 }
