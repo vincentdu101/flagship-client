@@ -10,7 +10,7 @@ import { Article, ArticlesService, CATEGORIES } from "../core";
 export class HomeBarGraphComponent implements AfterContentInit {
 
     @ViewChild("bar-chart") barChart: ElementRef; 
-    public width = 900;
+    public width: number;
     public margin = {top: 30, right: 20, bottom: 10, left: 100};
     public data: Article[] = [];
     public loader = true;
@@ -25,16 +25,24 @@ export class HomeBarGraphComponent implements AfterContentInit {
     };
 
     constructor(private articlesService: ArticlesService) {
-        this.determineHeight = this.determineHeight.bind(this);
-        this.getXScaleLinear = this.getXScaleLinear.bind(this);
-        this.getYScaleLinear = this.getYScaleLinear.bind(this);
-        this.createBarChart = this.createBarChart.bind(this);
+        this.adjustDimensions();
+    }
+
+    private adjustDimensions(): void {
+        // let incrementalWidthDrop = 900 - window.innerWidth;
+        // this.width = window.innerWidth > 900 ? 900 : window.innerWidth - incrementalWidthDrop;
+        this.width = 500;
     }
 
     ngAfterContentInit() {
         this.articlesService.findByCategory(CATEGORIES.TECHNOLOGY).subscribe((data) => {
             this.data = data;
             this.createBarChart();
+
+            window.addEventListener("resize", () => {
+                this.adjustDimensions();
+                this.createBarChart();
+            });
         });
     }
 
@@ -89,6 +97,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
     private createBarChart() {
         const svg = d3.select(".bar-chart");
+        svg.empty();
 
         this.x = this.getXScaleLinear();
         this.y = this.getYScaleLinear();

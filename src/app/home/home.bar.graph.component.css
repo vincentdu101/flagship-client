@@ -1,4 +1,13 @@
+.row {
+    padding-top: 100px;
+}
+
 .bar-container {
     height: 600px;
     border: 1px solid black;
+}
+
+.bar-description {
+    height: 400px;
+    overflow-y: scroll;
 }
