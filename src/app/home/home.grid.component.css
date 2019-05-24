@@ -1,8 +1,18 @@
 .card {
-    width: 100px;
-    height: 100px;
+    height: 200px !important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.row {
+    padding: 20px;
+    height: 450px;
+    overflow-y: scroll;
+    margin-top: 50px;
 }
 
 .container-fluid {
-    max-width: 1100px;
+    max-width: 1500px !important;
+    height: 600px;
+    border: 1px solid black;
 }

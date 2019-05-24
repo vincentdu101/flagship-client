@@ -1,10 +1,9 @@
 <div class="container-fluid">
-  <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="flex-start">
-    <ng-container *ngFor="let grid of grids">
-      <div class="card" fxFlex="0 1 calc(33.3% - 32px)">
+  
+    <div class="row">
+      <div class="card col-xs-12 col-md-4" *ngFor="let grid of grids">
           <h3>{{grid.name}}</h3>
           <p>{{grid.description}}</p>
         </div>
-    </ng-container>
-  </div>
+    </div>
 </div>
