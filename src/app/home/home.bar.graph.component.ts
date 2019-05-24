@@ -17,6 +17,9 @@ export class HomeBarGraphComponent implements AfterContentInit {
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;
+    private colors = [
+        "blue", "green", "orange", "yellow", "gray", "purple", "aqua", "brown", "black"
+    ];
     public selected = {
         name: "Select a bar to learn more", description: ""
     };
@@ -68,15 +71,17 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 .attr("height", this.y.bandwidth());
         
         rect.transition()
-            .attr("fill", (d, i) => this.data[i].body)
+            .attr("data-index", (d, i) => i)
+            .attr("fill", (d, i) => this.colors[i])
             .attr("width", d => this.x(d.description) - this.x(0))
             .delay((d, i) => i * 300);
 
         rect.on("mouseover", (element) => {
             d3.select("#" + element.name).attr("fill", "red");
         }).on("mouseout", (element) => {
-            d3.select("#" + element.name)
-                .attr("fill", element.body);
+            let ele = d3.select("#" + element.name);
+            let color = this.colors[parseInt(ele.attr("data-index"), 10)];
+            ele.attr("fill", color);
         }).on("click", (element) => {
             this.selected = element;
         });

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Article, ArticlesService } from "../core";
+import { CATEGORIES } from "../core";
 
 @Component({
   selector: 'home-grid',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeGridComponent implements OnInit {
 
-  constructor() { }
+    public grids: Article[] = [];
 
-  ngOnInit() {
-  }
+    constructor(private articlesService: ArticlesService) {
+
+    }
+
+    ngOnInit() {
+        this.articlesService.findByCategory(CATEGORIES.PROJECTS).subscribe((data) => {
+            this.grids = data;
+        });
+    }
 
 }
