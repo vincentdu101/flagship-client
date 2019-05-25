@@ -17,4 +17,15 @@ export class ViewService {
 		}
 	} 
 
+	public isScrolledIntoView(selector: string): boolean {
+        let el = document.getElementById(selector);
+        let rect = el.getBoundingClientRect();
+        
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= window.scrollY
+        );
+    }
+
 }

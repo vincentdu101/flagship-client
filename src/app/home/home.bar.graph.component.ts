@@ -1,6 +1,6 @@
 import { Component, AfterContentInit, Output, ViewChild, ElementRef, EventEmitter } from "@angular/core";
 import * as d3 from "d3";
-import { Article, ArticlesService, CATEGORIES } from "../core";
+import { Article, ArticlesService, CATEGORIES, ViewService } from "../core";
 
 @Component({
   selector: "home-bar-graph",
@@ -14,6 +14,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
     public margin = {top: 30, right: 20, bottom: 10, left: 100};
     public data: Article[] = [];
     public loader = true;
+    private barChartVisible = false;
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;
@@ -24,8 +25,16 @@ export class HomeBarGraphComponent implements AfterContentInit {
         name: "Select a bar to learn more", description: ""
     };
 
-    constructor(private articlesService: ArticlesService) {
+    constructor(
+        private articlesService: ArticlesService,
+        private viewService: ViewService
+    ) {
         this.adjustDimensions();
+        window.addEventListener("scroll", () => {
+            if (this.viewService.isScrolledIntoView("bar-chart") && !this.barChartVisible) {
+                this.createBarChart();
+            }
+        });
     }
 
     private adjustDimensions(): void {
@@ -37,11 +46,15 @@ export class HomeBarGraphComponent implements AfterContentInit {
     ngAfterContentInit() {
         this.articlesService.findByCategory(CATEGORIES.TECHNOLOGY).subscribe((data) => {
             this.data = data;
-            this.createBarChart();
+            if (this.viewService.isScrolledIntoView("bar-chart")) {
+                this.createBarChart();
+            }
 
             window.addEventListener("resize", () => {
                 this.adjustDimensions();
-                this.createBarChart();
+                if (this.viewService.isScrolledIntoView("bar-chart")) {
+                    this.createBarChart();
+                }
             });
         });
     }
@@ -96,9 +109,9 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     private createBarChart() {
-        const svg = d3.select(".bar-chart");
+        const svg = d3.select("#bar-chart");
         svg.empty();
-
+        this.barChartVisible = true;
         this.x = this.getXScaleLinear();
         this.y = this.getYScaleLinear();
 
