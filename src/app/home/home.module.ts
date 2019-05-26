@@ -1,5 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatGridListModule} from "@angular/material";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
@@ -16,6 +17,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule({
   imports: [
+    BrowserModule,
     SharedModule,
     HomeRoutingModule,
     NgbModule,

@@ -1,25 +1,14 @@
-<div class="container-fluid">
+<div class="container-fluid" id="home-card-carousel">
     <ngb-carousel *ngIf="cards">
       <ng-template ngbSlide *ngFor="let slide of cards">
 
           <div class="row">
-
-            <div class="card">
+            <div  class="card" 
+                  *ngFor="let card of slide" 
+                  [@openClose]="isOpen ? 'open' : 'closed'">
               <img src="https://via.placeholder.com/300" class="card-img-top" />
-              <h3>{{slide[0].name}}</h3>
-              <p>{{slide[0].description}}</p>
-            </div>
-          
-            <div class="card">
-              <img src="https://via.placeholder.com/300" class="card-img-top" />
-              <h3>{{slide[1].name}}</h3>
-              <p>{{slide[1].description}}</p>
-            </div>
-          
-            <div class="card">
-              <img src="https://via.placeholder.com/300" class="card-img-top" />
-              <h3>{{slide[2].name}}</h3>
-              <p>{{slide[2].description}}</p>
+              <h3>{{card.name}}</h3>
+              <p>{{card.description}}</p>
             </div>
           </div>
 
