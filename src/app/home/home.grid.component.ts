@@ -20,6 +20,22 @@ import {trigger, state, style, animate, transition} from "@angular/animations";
             transition("closed => open", [
                 animate("0.5s")
             ])
+        ]),
+        trigger("popInCenter", [
+            state("appear", style({
+                visibility: "visible",
+                opacity: 1
+            })),
+            state("disappear", style({
+                visibility: "hidden",
+                opacity: 0
+            })),
+            transition("appear => disappear", [
+                animate("0.5s")
+            ]),
+            transition("disappear => appear", [
+                animate("0.5s")
+            ])
         ])
     ]
 })
@@ -27,6 +43,7 @@ export class HomeGridComponent implements OnInit {
 
     public grids: Article[] = [];
     private isOpen = false;
+    public gridAnims = {}; 
 
     constructor(
         private articlesService: ArticlesService,
@@ -38,6 +55,9 @@ export class HomeGridComponent implements OnInit {
     ngOnInit() {
         this.articlesService.findByCategory(CATEGORIES.PROJECTS).subscribe((data) => {
             this.grids = data;
+            for (let grid of this.grids) {
+                this.gridAnims[grid._id] = {isPop: false};
+            }
             this.toggleCardsVisibleAfterScroll();
         });
     }
@@ -48,6 +68,10 @@ export class HomeGridComponent implements OnInit {
                 this.isOpen = true;
             }
         });
+    }
+
+    public togglePopInEffect(id): void {
+        this.gridAnims[id].isPop = !this.gridAnims[id].isPop;
     }
 
 }

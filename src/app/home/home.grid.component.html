@@ -1,9 +1,15 @@
 <div class="container-fluid" id="home-grid">
   
     <div class="row" [@openClose]="isOpen ? 'open' : 'closed'">
-      <div class="card col-xs-12 col-md-4" *ngFor="let grid of grids">
-          <h3>{{grid.name}}</h3>
-          <p>{{grid.description}}</p>
+      <div  class="card col-xs-12 col-md-4" 
+            *ngFor="let grid of grids"
+            (mouseover)="togglePopInEffect(grid._id)"
+            (mouseout)="togglePopInEffect(grid._id)">
+          <div  class="pop-in" 
+                [@popInCenter]="gridAnims[grid._id].isPop ? 'appear' : 'disappear'">              
+            <h3>{{grid.name}}</h3>
+            <p>{{grid.description}}</p>
+          </div>
         </div>
     </div>
 </div>
