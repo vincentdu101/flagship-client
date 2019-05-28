@@ -8,10 +8,11 @@
           <img  class="grid-image"
                 *ngIf="grid.image"
                 src="{{grid.image}}" />
-          <div  class="pop-in row" 
+          <div  class="pop-in" 
                 [@popInCenter]="gridAnims[grid._id].isPop ? 'appear' : 'disappear'">              
-            <h3>{{grid.name}}</h3><br />
+            <h5>{{grid.name}}</h5><br />
             <p>{{grid.description}}</p>
+            <button class="btn btn-secondary">View</button>
           </div>
         </div>
     </div>
