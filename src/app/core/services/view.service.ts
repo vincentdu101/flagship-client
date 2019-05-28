@@ -8,9 +8,8 @@ export class ViewService {
 
 	public getResourceValue(resource: FormGroup, attr: string): string {
 		let valueMap = resource.controls[attr].value;
-		if (valueMap && valueMap.value) {
-			return valueMap.value;
-		} else if (valueMap) {
+		
+		if (!!valueMap) {
 			return valueMap;
 		} else {
 			return "";
@@ -18,7 +17,12 @@ export class ViewService {
 	} 
 
 	public isScrolledIntoView(selector: string): boolean {
-        let el = document.getElementById(selector);
+		let el = document.getElementById(selector);
+		
+		if (!el) {
+			return false;
+		}
+
         let rect = el.getBoundingClientRect();
         
         return (

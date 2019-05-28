@@ -6,7 +6,9 @@
             <div  class="card" 
                   *ngFor="let card of slide" 
                   [@openClose]="isOpen ? 'open' : 'closed'">
-              <img src="https://via.placeholder.com/300" class="card-img-top" />
+              <img  *ngIf="card.image"
+                    src="{{card.image}}" 
+                    class="card-img-top" />
               <h3>{{card.name}}</h3>
               <p>{{card.description}}</p>
             </div>

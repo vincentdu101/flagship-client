@@ -15,12 +15,16 @@
 }
 
 .card img {
-    width: 100% !important;
-    max-height: 250px !important;
+    width: 300px !important;
+    height: 250px !important;
 }
 
 .container-fluid {
     height: 600px !important;
     padding-top: 125px;
     border: 1px solid black;
+}
+
+h3, p {
+    text-align: center;
 }

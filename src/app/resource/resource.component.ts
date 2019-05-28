@@ -73,13 +73,13 @@ export class ResourceComponent implements OnInit {
             body: new FormControl(),
             category: new FormControl()
 		});
-	}
+    }
 
 	private setupEditForm(resourceData: Article): void {
 		this.resourceForm = new FormGroup({
-			name: new FormControl({value: resourceData.name}),
-			description: new FormControl({ value: resourceData.description }),
-            image: new FormControl({ value: resourceData.image }),
+			name: new FormControl(resourceData.name),
+			description: new FormControl(resourceData.description),
+            image: new FormControl(resourceData.image),
             body: new FormControl(resourceData.body),
             category: new FormControl(resourceData.category)
 		});

@@ -14,7 +14,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
     public margin = {top: 30, right: 20, bottom: 10, left: 100};
     public data: Article[] = [];
     public loader = true;
-    private barChartVisible = false;
+    public barChartVisible = false;
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;

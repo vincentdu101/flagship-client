@@ -1,5 +1,5 @@
 .row {
-    padding-top: 100px;
+    padding: 15px !important;
 }
 
 .bar-container {
@@ -10,4 +10,13 @@
 .bar-description {
     height: 400px;
     overflow-y: scroll;
+}
+
+img {
+    width: 140px;
+    height: 140px;
+}
+
+.image-border {
+    left: 1px;
 }

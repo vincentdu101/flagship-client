@@ -5,9 +5,12 @@
             *ngFor="let grid of grids"
             (mouseover)="togglePopInEffect(grid._id)"
             (mouseout)="togglePopInEffect(grid._id)">
-          <div  class="pop-in" 
+          <img  class="grid-image"
+                *ngIf="grid.image"
+                src="{{grid.image}}" />
+          <div  class="pop-in row" 
                 [@popInCenter]="gridAnims[grid._id].isPop ? 'appear' : 'disappear'">              
-            <h3>{{grid.name}}</h3>
+            <h3>{{grid.name}}</h3><br />
             <p>{{grid.description}}</p>
           </div>
         </div>
