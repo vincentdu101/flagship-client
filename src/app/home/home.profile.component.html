@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+    <div class="row" *ngIf="cards">
+        <div class="col-xs-12 col-md-6">
+            <div class="card profile-card ml-md-auto">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="{{cards[0].image}}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{cards[0].name}}</h5>
+                            <p class="card-text">{{cards[0].description}}</p>
+                            <p class="card-text">{{cards[0].body}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-6">
+            <div class="card profile-card">
+                <div class="card-body">
+                    <h5 class="card-title">{{cards[1].name}}</h5>
+                    <p class="card-text" [innerHTML]="cards[1].body"></p>
+                    <a href="#" class="btn btn-primary">Button</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

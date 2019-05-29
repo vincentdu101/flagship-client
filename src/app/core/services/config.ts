@@ -48,7 +48,8 @@ export enum CATEGORIES {
 	SKILLS = "skills",
 	PROJECTS = "projects",
 	SLIDESHOW = "slideshow",
-	TECHNOLOGY = "technology"
+	TECHNOLOGY = "technology",
+	PERSONAL = "personal"
 }
 
 export interface ISkill {

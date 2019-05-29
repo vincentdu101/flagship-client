@@ -9,6 +9,7 @@ import { HomeComponent } from './home.component';
 import { HomeCarouselComponent } from "./home-carousel.component";
 import { HomeBarGraphComponent } from "./home.bar.graph.component";
 import { HomeCardCarouselComponent } from "./home.card.carousel.component";
+import { HomeProfileComponent } from "./home.profile.component";
 import { HomeGridComponent } from "./home.grid.component";
 import { HomeAuthResolver } from './home-auth-resolver.service';
 import { SharedModule } from '../shared';
@@ -30,7 +31,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     HomeCarouselComponent,
     HomeBarGraphComponent,
     HomeCardCarouselComponent,
-    HomeGridComponent
+    HomeGridComponent,
+    HomeProfileComponent
   ],
   providers: [
     HomeAuthResolver

@@ -35,14 +35,18 @@
 						Category
 					</div>
 					<div class="col-xs-12 col-sm-9">
-						<div class="btn-group" role="group" aria-label="Basic example">
-							<button type="button" 
-									class="btn btn-secondary"
-									*ngFor="let cat of categories"
-									(click)="selectCategory(cat)"
-									[ngClass]="categorySelected(cat)">
-									{{parseCategory(cat)}}
+						<div ngbDropdown class="d-inline-block">
+							<button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+								{{parseCategory(getResourceValue("category"))}}
 							</button>
+							<div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+								<button ngbDropdownItem
+										*ngFor="let cat of categories"
+										(click)="selectCategory(cat)"
+										[ngClass]="categorySelected(cat)">
+										{{parseCategory(cat)}}
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -56,6 +60,12 @@
 								name="image" 
 								formControlName="image"
 								[value]="getResourceValue('image')" />
+					</div>
+					<div class="col-xs-12 col-sm-3">
+						Caption Preview
+					</div>
+					<div class="col-xs-12 col-sm-9" *ngIf="getResourceValue('image')">
+						<img src="{{getResourceValue('image')}}" />
 					</div>
 				</div>		
 			</div>

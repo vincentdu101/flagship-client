@@ -1,0 +1,9 @@
+.container-fluid {
+    margin-top: 50px;
+    height: 600px;
+}
+
+.profile-card {
+    max-width: 600px;
+    height: 400px;
+}
