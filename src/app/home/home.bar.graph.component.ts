@@ -1,6 +1,7 @@
 import { Component, AfterContentInit, Output, ViewChild, ElementRef, EventEmitter } from "@angular/core";
 import * as d3 from "d3";
 import { Article, ArticlesService, CATEGORIES, ViewService } from "../core";
+import { BasePortalHost } from "@angular/cdk/portal";
 
 @Component({
   selector: "home-bar-graph",
@@ -19,7 +20,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
     private y: d3.ScaleBand<string>;
     private yAxis;
     private colors = [
-        "blue", "green", "orange", "yellow", "gray", "purple", "aqua", "brown", "black"
+        "blue", "green", "orange", "yellow", "gray", "gold", "aqua", "brown", "black"
     ];
     public selected = {
         name: "Select a bar to learn more", description: ""
@@ -98,11 +99,12 @@ export class HomeBarGraphComponent implements AfterContentInit {
             .delay((d, i) => i * 300);
 
         rect.on("mouseover", (element) => {
-            d3.select("#" + element.name).attr("fill", "red");
+            let bar = document.getElementById(element.name);
+            bar.style.fill = "red";
         }).on("mouseout", (element) => {
-            let ele = d3.select("#" + element.name);
-            let color = this.colors[parseInt(ele.attr("data-index"), 10)];
-            ele.attr("fill", color);
+            let bar = document.getElementById(element.name);
+            let color = this.colors[parseInt(bar.dataset.index, 10)];
+            bar.style.fill = color;
         }).on("click", (element) => {
             this.selected = element;
         });

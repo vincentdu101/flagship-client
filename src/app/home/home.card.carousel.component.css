@@ -22,7 +22,7 @@
 .container-fluid {
     height: 600px !important;
     padding-top: 125px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 h3, p {

@@ -4,7 +4,7 @@
 
 .bar-container {
     height: 600px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 .bar-description {

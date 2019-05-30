@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Article, ArticlesService, ViewService } from "../core";
 import { CATEGORIES } from "../core";
 import {trigger, state, style, animate, transition} from "@angular/animations";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'home-grid',
@@ -47,7 +48,8 @@ export class HomeGridComponent implements OnInit {
 
     constructor(
         private articlesService: ArticlesService,
-        private viewService: ViewService
+        private viewService: ViewService,
+        private router: Router
     ) {
 
     }
@@ -72,6 +74,10 @@ export class HomeGridComponent implements OnInit {
 
     public togglePopInEffect(id): void {
         this.gridAnims[id].isPop = !this.gridAnims[id].isPop;
+    }
+
+    public viewArticle(id: string): void {
+        this.router.navigateByUrl("/article/" + id);
     }
 
 }

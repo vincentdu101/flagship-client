@@ -71,7 +71,8 @@ export class ResourceComponent implements OnInit {
 			description: new FormControl(),
             image: new FormControl(),
             body: new FormControl(),
-            category: new FormControl()
+            category: new FormControl(),
+            demo: new FormControl()
 		});
     }
 
@@ -81,7 +82,8 @@ export class ResourceComponent implements OnInit {
 			description: new FormControl(resourceData.description),
             image: new FormControl(resourceData.image),
             body: new FormControl(resourceData.body),
-            category: new FormControl(resourceData.category)
+            category: new FormControl(resourceData.category),
+            demo: new FormControl(resourceData.demo)
 		});
     }  
   
@@ -115,7 +117,8 @@ export class ResourceComponent implements OnInit {
 		this.resource.description = this.viewService.getResourceValue(this.resourceForm, "description");
 		this.resource.image = this.viewService.getResourceValue(this.resourceForm, "image");
 		this.resource.category = this.viewService.getResourceValue(this.resourceForm, "category");
-		this.resource.body = this.viewService.getResourceValue(this.resourceForm, "body");
+        this.resource.body = this.viewService.getResourceValue(this.resourceForm, "body");
+        this.resource.demo = this.viewService.getResourceValue(this.resourceForm, "demo");
 		this.resourceService.saveResource(this.resource).subscribe((data) => {
             this.router.navigateByUrl("/resource");
 		});

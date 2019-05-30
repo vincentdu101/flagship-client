@@ -7,6 +7,7 @@ export interface Article {
     body: string;
     category: string;
     image: string;
+    demo: string;
     crated_at?: string;
     updatedAt?: string;
     favorited?: boolean;

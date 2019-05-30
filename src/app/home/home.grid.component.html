@@ -12,7 +12,8 @@
                 [@popInCenter]="gridAnims[grid._id].isPop ? 'appear' : 'disappear'">              
             <h5>{{grid.name}}</h5><br />
             <p>{{grid.description}}</p>
-            <button class="btn btn-secondary">View</button>
+            <button class="btn btn-secondary"
+                    (click)="viewArticle(grid._id)">View</button>
           </div>
         </div>
     </div>

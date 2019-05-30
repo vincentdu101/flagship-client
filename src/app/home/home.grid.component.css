@@ -16,7 +16,7 @@
 .container-fluid {
     max-width: 1500px !important;
     height: 600px;
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
 img {
