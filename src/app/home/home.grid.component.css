@@ -38,3 +38,7 @@ img {
     width: 90%;
     height: 90%;
 }
+
+.demo-btn {
+    margin-left: 10px !important;
+}

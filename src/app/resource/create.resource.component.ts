@@ -61,7 +61,8 @@ export class CreateResourceComponent implements OnInit {
             description: "",
             body: "",
             category: "",
-            image: ""
+            image: "",
+            demo: ""
         };
     }
 
@@ -77,7 +78,8 @@ export class CreateResourceComponent implements OnInit {
             description: new FormControl(),
             image: new FormControl(),
             body: new FormControl(),
-            category: new FormControl()
+            category: new FormControl(),
+            demo: new FormControl()
         });
     }
 
@@ -112,6 +114,7 @@ export class CreateResourceComponent implements OnInit {
         this.resource.image = this.viewService.getResourceValue(this.resourceForm, "image");
         this.resource.category = this.viewService.getResourceValue(this.resourceForm, "category");
         this.resource.body = this.viewService.getResourceValue(this.resourceForm, "body");
+        this.resource.demo = this.viewService.getResourceValue(this.resourceForm, "demo");
         this.resourceService.createResource(this.resource).subscribe((data) => {
             this.initResource();
             this.initNewForm();
