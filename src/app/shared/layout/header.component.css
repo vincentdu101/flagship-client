@@ -1,0 +1,13 @@
+.container-fluid {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.scroll-btn {
+    color: #007bff !important;
+    cursor: pointer;
+}
+
+.navbar-nav .nav-item+.nav-item {
+    margin-left: 0 !important;
+}

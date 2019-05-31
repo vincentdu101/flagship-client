@@ -1,6 +1,7 @@
 .container-fluid {
-    margin-top: 50px;
+    padding-top: 50px;
     height: 500px;
+    background-color: rgb(116, 239, 231);
 }
 
 .profile-card {
