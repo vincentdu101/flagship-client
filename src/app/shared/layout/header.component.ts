@@ -40,9 +40,8 @@ export class HeaderComponent implements OnInit {
   }
 
   public scrollView(id: string): void {
-    let element = document.getElementById("home-" + id + "-scroll");
-    element.scrollIntoView({
-      behavior: "smooth", block: "start", inline: "nearest"
-    });
+    let element = document.querySelector("#home-" + id + "-scroll");
+    let topOfElement = element["offsetTop"] - 70;
+    window.scroll({ top: topOfElement, behavior: "smooth" });
   }
 }
