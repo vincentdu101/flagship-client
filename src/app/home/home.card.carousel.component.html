@@ -1,3 +1,10 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Fluid jumbotron</h1>
+    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+  </div>
+</div>
+
 <div class="container-fluid" id="home-card-carousel">
     <ngb-carousel *ngIf="cards">
       <ng-template ngbSlide *ngFor="let slide of cards">
@@ -11,6 +18,7 @@
                     class="card-img-top" />
               <h3>{{card.name}}</h3>
               <p>{{card.description}}</p>
+              <p>{{card.body}}</p>
             </div>
           </div>
 

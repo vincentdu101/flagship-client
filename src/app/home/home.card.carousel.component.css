@@ -2,11 +2,11 @@
     display: flex !important;
     justify-content: center !important;
     overflow-y: scroll;
-    height: 332px;
+    height: 450px;
 }
 
 .carousel.slide {
-    background: aqua !important;
+    /* background: aqua !important; */
     padding: 20px;
 }
 
@@ -21,10 +21,16 @@
 
 .container-fluid {
     height: 600px !important;
-    padding-top: 125px;
+    padding-top: 50px;
     /* border: 1px solid black; */
 }
 
 h3, p {
     text-align: center;
+}
+
+a.ng-star-inserted, a.ng-star-inserted {
+    width: 100px !important;
+    height: 100px !important;
+    background-color: gray !important;
 }
