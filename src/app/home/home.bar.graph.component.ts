@@ -39,9 +39,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     private adjustDimensions(): void {
-        // let incrementalWidthDrop = 900 - window.innerWidth;
-        // this.width = window.innerWidth > 900 ? 900 : window.innerWidth - incrementalWidthDrop;
-        this.width = 500;
+        this.width = window.innerWidth > 1200 ? 500 : 450;
     }
 
     ngAfterContentInit() {
@@ -112,7 +110,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
     private createBarChart() {
         const svg = d3.select("#bar-chart");
-        svg.empty();
+        svg.selectAll("*").remove();
         this.barChartVisible = true;
         this.x = this.getXScaleLinear();
         this.y = this.getYScaleLinear();
