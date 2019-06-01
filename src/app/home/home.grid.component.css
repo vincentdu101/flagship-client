@@ -4,19 +4,29 @@
     margin-bottom: 0px !important;
     padding-left: 0px !important;
     padding-right: 0px !important;
+    border: 2px solid white !important;
 }
 
 .row {
-    padding: 20px;
-    height: 450px;
+    padding: 70px 20px 20px 20px;
+    height: 500px;
     overflow-y: scroll;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
 
 .container-fluid {
     max-width: 1500px !important;
     height: 600px;
+    background: rgb(61, 61, 62);
     /* border: 1px solid black; */
+}
+
+.grid-cover {
+    background: rgb(61, 61, 62);
+}
+
+.jumbotron {
+    margin-bottom: 0 !important;
 }
 
 img {

@@ -13,6 +13,7 @@
 }
 
 .navbar {
-    background: white !important;
+    /* background: rgb(150, 249, 218) !important; */
+    background: white;
     height: 70px;
 }

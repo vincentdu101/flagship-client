@@ -2,3 +2,7 @@ img {
     height: 500px !important;
     margin: auto !important;
 }
+
+.carousel {
+    background: black !important;
+}
