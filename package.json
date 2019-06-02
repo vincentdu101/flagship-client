@@ -39,6 +39,7 @@
     "jasmine-core": "2.99.1",
     "jasmine-marbles": "0.4.1",
     "jquery": "^3.4.1",
+    "ngx-carousel-3d": "^1.0.1",
     "rxjs": "6.5.2",
     "rxjs-compat": "^6.5.2",
     "web-animations-js": "2.3.1",

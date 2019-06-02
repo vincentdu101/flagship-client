@@ -30,6 +30,22 @@ export class ViewService {
             rect.left >= 0 &&
             rect.bottom <= window.scrollY
         );
+	}
+	
+	public isScrolledIntoViewTop(selector: string): boolean {
+		let el = document.getElementById(selector);
+		
+		if (!el) {
+			return false;
+		}
+
+        let rect = el.getBoundingClientRect();
+        
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.top <= window.scrollY
+        );
     }
 
 }

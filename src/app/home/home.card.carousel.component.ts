@@ -25,7 +25,7 @@ import {trigger, state, style, animate, transition} from "@angular/animations";
 })
 export class HomeCardCarouselComponent implements AfterContentInit {
 
-    public cards: Article[][] = [];
+    public cards: Article[] = [];
     public isOpen = false;
 
     constructor(
@@ -36,17 +36,18 @@ export class HomeCardCarouselComponent implements AfterContentInit {
 
     ngAfterContentInit() {
         this.articlesService.findByCategory(CATEGORIES.SKILLS).subscribe((data) => {
-            let interval = []
-            for (let card of data) {
-                if (interval.length === 3) {
-                    this.cards.push(interval);
-                    interval = [];
-                }
-                interval.push(card);
-            }
-            if (interval.length > 0) {
-                this.cards.push(interval);
-            }
+            // let interval = []
+            // for (let card of data) {
+            //     if (interval.length === 3) {
+            //         this.cards.push(interval);
+            //         interval = [];
+            //     }
+            //     interval.push(card);
+            // }
+            // if (interval.length > 0) {
+            //     this.cards.push(interval);
+            // }
+            this.cards = data;
             this.toggleCardsVisibleAfterScroll();
         });
     }

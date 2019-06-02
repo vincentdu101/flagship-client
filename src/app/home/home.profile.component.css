@@ -7,9 +7,58 @@
 .profile-card {
     max-width: 600px;
     height: 400px;
+    opacity: 0;
 }
 
 .profile-pic {
     width: 300px !important;
     height: 300px !important;
+}
+
+.slide-left {
+    /* position: absolute; */
+    left: -500px;
+    opacity: 0;
+    -webkit-animation: slide-left 1s forwards;
+    /* -webkit-animation-delay: 1s; */
+    animation: slide-left 1s forwards;
+    /* animation-delay: 1s; */
+}
+
+.slide-right {
+    /* position: absolute; */
+    right: -500px;
+    opacity: 0;
+    -webkit-animation: slide-right 1s forwards;
+    /* -webkit-animation-delay: 1s; */
+    animation: slide-right 1s forwards;
+    /* animation-delay: 1s; */
+}
+
+@-webkit-keyframes slide-left {
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left {
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-right {
+    100% {
+        right: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes slide-right {
+    100% {
+        right: 0;
+        opacity: 1;
+    }
 }
