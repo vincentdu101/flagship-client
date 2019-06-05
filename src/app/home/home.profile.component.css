@@ -10,9 +10,19 @@
     opacity: 0;
 }
 
+.profile-body {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
 .profile-pic {
     width: 300px !important;
     height: 300px !important;
+}
+
+.border-less {
+    border: none !important;
+    box-shadow: none !important;
 }
 
 .slide-left {
