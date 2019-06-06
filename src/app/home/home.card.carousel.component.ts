@@ -25,14 +25,20 @@ import {trigger, state, style, animate, transition} from "@angular/animations";
 })
 export class HomeCardCarouselComponent implements AfterContentInit {
 
+    private singleThreshold = 1405;
     public cards: Article[] = [];
     public isOpen = false;
+    public smallWindow = window.innerWidth <= this.singleThreshold;
 
     constructor(
         public config: NgbCarouselConfig,
         private articlesService: ArticlesService,
         private viewService: ViewService
-    ) {}
+    ) {
+        window.addEventListener("resize", () => {
+            this.smallWindow = window.innerWidth <= this.singleThreshold;
+        });
+    }
 
     ngAfterContentInit() {
         this.articlesService.findByCategory(CATEGORIES.SKILLS).subscribe((data) => {

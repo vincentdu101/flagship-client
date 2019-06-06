@@ -2,7 +2,8 @@
     display: flex !important;
     justify-content: center !important;
     overflow-y: scroll;
-    height: 450px;
+    /* height: 500px; */
+    width: 100% !important;
 }
 
 .carousel.slide {
@@ -12,20 +13,21 @@
 
 .card {
     margin: 0 30px !important;
+    margin-bottom: 50px !important;
 }
 
 .card img {
-    width: 300px !important;
-    height: 250px !important;
+    width: 400px !important;
+    height: 300px !important;
 }
 
 .container-fluid {
-    height: 600px !important;
+    /* height: 600px !important; */
     padding-top: 50px;
     /* border: 1px solid black; */
 }
 
-h3, p {
+h3 {
     text-align: center;
 }
 
@@ -33,4 +35,17 @@ a.ng-star-inserted, a.ng-star-inserted {
     width: 100px !important;
     height: 100px !important;
     background-color: gray !important;
+}
+
+.card > p {
+    padding: 5px;
+}
+
+.card-title {
+    margin-top: 10px;
+}
+
+.row.single {
+    width: 500px !important;
+    height: 1500px !important;
 }
