@@ -23,7 +23,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         "blue", "green", "orange", "yellow", "gray", "gold", "aqua", "brown", "black"
     ];
     public selected = {
-        name: "Select a bar to learn more", description: ""
+        name: "Select a bar to learn more", description: "", image: "", body: ""
     };
 
     constructor(

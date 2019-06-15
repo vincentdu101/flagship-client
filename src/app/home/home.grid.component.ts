@@ -43,8 +43,8 @@ import { Router } from '@angular/router';
 export class HomeGridComponent implements OnInit {
 
     public grids: Article[] = [];
-    private isOpen = false;
-    public gridAnims = {}; 
+    public isOpen = false;
+    public gridAnims = {};
 
     constructor(
         private articlesService: ArticlesService,

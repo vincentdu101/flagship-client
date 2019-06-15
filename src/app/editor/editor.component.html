@@ -36,14 +36,6 @@
                 placeholder="Enter tags"
                 [formControl]="tagField"
                 (keyup.enter)="addTag()" />
-
-              <div class="tag-list">
-                <span *ngFor="let tag of article.tagList"
-                  class="tag-default tag-pill">
-                  <i class="ion-close-round" (click)="removeTag(tag)"></i>
-                  {{ tag }}
-                </span>
-              </div>
             </fieldset>
 
             <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">

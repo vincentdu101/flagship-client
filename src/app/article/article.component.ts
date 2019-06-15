@@ -25,6 +25,7 @@ export class ArticleComponent implements OnInit {
   commentFormErrors = {};
   isSubmitting = false;
   isDeleting = false;
+  loading = false;
 
   constructor(
     private route: ActivatedRoute,

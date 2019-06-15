@@ -10,7 +10,7 @@ import {NgbModal, ModalDismissReasons} from "@ng-bootstrap/ng-bootstrap";
 })
 export class ResourcesComponent implements OnInit {
 
-    private resources: Article[];
+    public resources: Article[];
     public showCreationPage = false;
 
     constructor(
