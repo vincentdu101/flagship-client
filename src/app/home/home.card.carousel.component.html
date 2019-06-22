@@ -1,15 +1,14 @@
-<div class="container-fluid" id="home-card-carousel">
-    <div    class="row m-auto" *ngIf="cards"
+<div class="container-fluid" id="home-card-carousel" *ngIf="cards">
+    <div    class="row m-auto"
             [ngClass]="{'single': smallWindow}">
         <div  class="card" 
                 *ngFor="let card of cards" 
                 [@openClose]="isOpen ? 'open' : 'closed'">
-            <img  *ngIf="card.image"
-                src="{{card.image}}" 
+            <img src="{{card?.image}}" 
                 class="card-img-top" />
-            <h3 class="card-title">{{card.name}}</h3>
-            <p [innerHTML]="card.description"></p>
-            <p [innerHTML]="card.body"></p>
+            <h3 class="card-title">{{card?.name}}</h3>
+            <p [innerHTML]="card?.description"></p>
+            <p [innerHTML]="card?.body"></p>
         </div>
     </div>
 </div>

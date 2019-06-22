@@ -26,7 +26,9 @@ import {trigger, state, style, animate, transition} from "@angular/animations";
 export class HomeCardCarouselComponent implements AfterContentInit {
 
     private singleThreshold = 1405;
-    public cards: Article[] = [];
+    public cards: Article[] = [
+        {image: "", name: "", description: "", body: "", category: "", demo: ""}
+    ];
     public isOpen = false;
     public smallWindow = window.innerWidth <= this.singleThreshold;
 
@@ -41,7 +43,7 @@ export class HomeCardCarouselComponent implements AfterContentInit {
     }
 
     ngAfterContentInit() {
-        this.articlesService.findByCategory(CATEGORIES.SKILLS).subscribe((data) => {
+        this.articlesService.findByCategory(CATEGORIES.SKILLS).subscribe((data: Article[]) => {
             // let interval = []
             // for (let card of data) {
             //     if (interval.length === 3) {

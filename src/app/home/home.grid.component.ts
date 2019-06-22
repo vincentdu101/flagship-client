@@ -55,9 +55,9 @@ export class HomeGridComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.articlesService.findByCategory(CATEGORIES.PROJECTS).subscribe((data) => {
+        this.articlesService.findByCategory(CATEGORIES.PROJECTS).subscribe((data: Article[]) => {
             this.grids = data;
-            for (let grid of this.grids) {
+            for (const grid of this.grids) {
                 this.gridAnims[grid._id] = {isPop: false};
             }
             this.toggleCardsVisibleAfterScroll();

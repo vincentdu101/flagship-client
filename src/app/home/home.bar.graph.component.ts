@@ -13,7 +13,9 @@ export class HomeBarGraphComponent implements AfterContentInit {
     @ViewChild("bar-chart") barChart: ElementRef; 
     public width: number;
     public margin = {top: 30, right: 20, bottom: 10, left: 100};
-    public data: Article[] = [];
+    public data: Article[] = [
+        {image: "", name: "", description: "", body: "", category: "", demo: ""}
+    ];
     public loader = true;
     public barChartVisible = false;
     private x: d3.ScaleLinear<number, number>;

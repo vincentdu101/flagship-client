@@ -7,7 +7,7 @@
 <div class="grid-cover">
   <div class="container-fluid" id="home-grid">
     
-      <div class="row" [@openClose]="isOpen ? 'open' : 'closed'">
+      <div class="row" [@openClose]="isOpen ? 'open' : 'closed'" *ngIf="grids">
         <div  class="card col-xs-12 col-md-4" 
               *ngFor="let grid of grids"
               (mouseover)="togglePopInEffect(grid._id)"
