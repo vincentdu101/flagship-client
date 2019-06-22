@@ -1,4 +1,9 @@
 .footer {
     /* background: rgb(40, 143, 104) !important; */
-    background: white;
+    background-image: linear-gradient(#2d76c4, #aff4ff);
+    color: black !important;
+}
+
+footer .attribution {
+    color: white !important;
 }

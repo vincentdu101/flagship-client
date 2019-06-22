@@ -1,12 +1,26 @@
+svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+}
+
+header {
+    background-image: linear-gradient(#84dcea, #2d76c4);
+    position: absolute;
+    height: 500px;
+    width: 100%;
+}
+
 .container-fluid {
     padding-top: 50px;
-    min-height: 500px;
+    min-height: 600px;
     /* background-color: rgb(116, 239, 231); */
 }
 
 .profile-card {
     max-width: 600px;
-    height: 400px;
+    height: 450px;
     opacity: 0;
 }
 

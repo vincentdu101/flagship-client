@@ -4,7 +4,7 @@
 }
 
 .scroll-btn {
-    color: #007bff !important;
+    color: black !important;
     cursor: pointer;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .navbar {
-    /* background: rgb(150, 249, 218) !important; */
+    background-image: linear-gradient(#aff4ff, #62d4f4);
     /* background: white; */
     height: 70px;
 }

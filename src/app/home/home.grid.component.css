@@ -17,16 +17,18 @@
 .container-fluid {
     max-width: 1500px !important;
     height: 600px;
-    background: rgb(61, 61, 62);
+    /* background: rgb(61, 61, 62); */
     /* border: 1px solid black; */
 }
 
 .grid-cover {
-    background: rgb(61, 61, 62);
+    /* background: rgb(61, 61, 62); */
 }
 
 .jumbotron {
     margin-bottom: 0 !important;
+    background: #2d76c4 !important;
+    color: white;
 }
 
 img {

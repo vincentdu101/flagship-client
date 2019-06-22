@@ -6,6 +6,11 @@
     width: 100% !important;
 }
 
+.jumbotron {
+    background: #2d76c4 !important;
+    color: white !important;
+}
+
 .carousel.slide {
     /* background: aqua !important; */
     padding: 20px;

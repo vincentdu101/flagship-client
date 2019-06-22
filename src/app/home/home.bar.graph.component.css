@@ -20,3 +20,8 @@ img {
 .image-border {
     left: 1px;
 }
+
+.jumbotron {
+    background: #2d76c4 !important;
+    color: white;
+}
