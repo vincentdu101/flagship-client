@@ -60,5 +60,13 @@ export class CategoryService {
 		});
 	}
 
+	public convertCategoriesToList(): string[] {
+		const categories = [];
+        for (const category of Object.values(CATEGORIES)) {
+            categories.push(category);
+		}
+		return categories;
+    }
+
 
 }

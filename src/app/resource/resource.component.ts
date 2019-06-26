@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from "@angular/forms";
-import {ArticlesService, Article, ViewService, ResourceService} from "../core";
+import {ArticlesService, Article, ViewService, ResourceService, CategoryService} from "../core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CATEGORIES} from "../core";
 import { AngularEditorConfig } from '@kolkov/angular-editor';
@@ -44,9 +44,10 @@ export class ResourceComponent implements OnInit {
         private route: ActivatedRoute,
         private viewService: ViewService,
         private router: Router,
-        private resourceService: ResourceService
+        private resourceService: ResourceService,
+        private categoryService: CategoryService
     ) {
-        this.convertCategoriesToList();   
+        this.categories = this.categoryService.convertCategoriesToList();
     }
 
     ngOnInit() {
@@ -57,12 +58,6 @@ export class ResourceComponent implements OnInit {
                 this.setupEditForm(this.resource);
             });
         });
-    }
-
-    private convertCategoriesToList(): void {
-        for(let category of Object.values(CATEGORIES)) {
-            this.categories.push(category);
-        }
     }
 
 	private initEditForm(): void {
@@ -85,8 +80,8 @@ export class ResourceComponent implements OnInit {
             category: new FormControl(resourceData.category),
             demo: new FormControl(resourceData.demo)
 		});
-    }  
-  
+    }
+
     public getResourceValue(attr: string): string {
         return this.viewService.getResourceValue(this.resourceForm, attr);
     }

@@ -2,7 +2,7 @@
     <div class="row slide m-auto align-middle">
       <div class="col-xs-12">
         <h3>{{slides[0]?.name}}</h3>
-        <p>{{slides[0]?.description}}</p>
+        <p [innerHTML]="slides[0]?.description"></p>
       </div>
     </div>
 </div>
