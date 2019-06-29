@@ -10,7 +10,7 @@
   <div class="container-fluid" id="home-grid">
     
       <div class="row" [@openClose]="isOpen ? 'open' : 'closed'" *ngIf="grids">
-        <div  class="card col-xs-12 col-md-4" 
+        <div  class="m-auto card col-xs-12 col-sm-8 col-md-6 col-lg-4" 
               *ngFor="let grid of grids"
               (mouseover)="togglePopInEffect(grid._id)"
               (mouseout)="togglePopInEffect(grid._id)">

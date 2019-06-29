@@ -111,6 +111,10 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     private createBarChart() {
+        if (this.data[0].name === "") {
+            return;
+        }
+
         const svg = d3.select("#bar-chart");
         svg.selectAll("*").remove();
         this.barChartVisible = true;

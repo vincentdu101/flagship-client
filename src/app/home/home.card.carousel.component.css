@@ -1,7 +1,7 @@
 .row {
     display: flex !important;
     justify-content: center !important;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     /* height: 500px; */
     width: 100% !important;
 }
@@ -19,6 +19,7 @@
 .card {
     margin: 0 30px !important;
     margin-bottom: 50px !important;
+    width: 400px !important;
 }
 
 .card img {
@@ -52,5 +53,4 @@ a.ng-star-inserted, a.ng-star-inserted {
 
 .row.single {
     width: 500px !important;
-    height: 1500px !important;
 }

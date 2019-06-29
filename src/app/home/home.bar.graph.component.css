@@ -8,8 +8,13 @@
 }
 
 .bar-description {
-    height: 400px;
-    overflow-y: scroll;
+    min-height: 400px;
+    max-height: 400px;
+}
+
+.card-body {
+    height: 200px !important;
+    overflow-y: scroll !important;
 }
 
 img {
