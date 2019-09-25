@@ -9,6 +9,7 @@
 .jumbotron {
     background: #2d76c4 !important;
     color: white !important;
+    text-align: center;
 }
 
 .carousel.slide {

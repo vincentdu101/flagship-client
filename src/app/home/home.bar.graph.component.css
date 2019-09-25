@@ -29,4 +29,5 @@ img {
 .jumbotron {
     background: #2d76c4 !important;
     color: white;
+    text-align: center;
 }
