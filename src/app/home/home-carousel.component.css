@@ -12,49 +12,149 @@ img {
 }
 
 .container-fluid {
-    background: #000000;
+    background: linear-gradient(-45deg, #ee7752, #e73ce2, #23a6d5, #23d5ab);
     width: 100%;
     height: 600px;
     position: relative;
     color: white;
     text-align: center;
+    background-size: 400% 400%;
+    animation: gradientTransition 10s ease infinite;
+}
+
+.box {
+    border: 2px solid white;
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    background: white;
+    /* opacity: 0.5; */
 }
 
 .show-box-top {
-    border: 2px solid white;
-    animation: moving-boxes-top 5s infinite;
+    animation: moving-boxes-top 10s infinite;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px;
-    height: 100px;
-    background: white;
+    top: -500px;
+    left: 0px;
 }
+
+.show-box-bottom {
+    animation: moving-boxes-bottom 10s infinite;
+    position: absolute;
+    top: 500px;
+    left: 0px;
+}
+
+/* top positions */
+
+.box:nth-child(1) {
+    left: 10%;
+    animation-delay: 5s;
+}
+
+.box:nth-child(2) {
+    left: 30%;
+    animation-delay: 7s;
+}
+
+.box:nth-child(3) {
+    left: 50%;
+    animation-delay: 10s;
+}
+
+.box:nth-child(4) {
+    left: 70%;
+    animation-delay: 12s;
+}
+
+.box:nth-child(5) {
+    left: 90%;
+    animation-delay: 15s;
+}
+
+/* bottom positions */
+
+.box:nth-child(6) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.box:nth-child(7) {
+    left: 40%;
+    animation-delay: 6s;
+}
+
+.box:nth-child(8) {
+    left: 60%;
+    animation-delay: 10s;
+}
+
+.box:nth-child(9) {
+    left: 80%;
+    animation-delay: 12s;
+}
+
+.box:nth-child(10) {
+    left: 40%;
+    animation-delay: 20s;
+}
+
+/* animations */
 
 @keyframes moving-boxes-top {
 
     0% {
-        -webkit-transform: translate(-3em, -20em);
-        -moz-transform: translate(-3em, -20em);
-        -o-transform: translate(-3em, -20em);
-        -ms-transform: translate(-3em, -20em);
-        transform: translate(-3em, -20em);
-    }
-
-    25% {
-        -webkit-transform: translate(2em, -16em);
-        -moz-transform: translate(2em, -16em);
-        -o-transform: translate(2em, -16em);
-        -ms-transform: translate(2em, -16em);
-        transform: translate(2em, -16em);   
+        /* translate(x, y) */
+        -webkit-transform: translateY(-500px) rotate(0deg) ;
+        -moz-transform: translateY(-500px) rotate(0deg) ;
+        -o-transform: translateY(-500px) rotate(0deg) ;
+        -ms-transform: translateY(-500px) rotate(0deg) ;
+        transform: translateY(-500px) rotate(0deg) ;
     }
 
     100% {
-        -webkit-transform: translate(-3em, -20em);
-        -moz-transform: translate(-3em, -20em);
-        -o-transform: translate(-3em, -20em);
-        -ms-transform: translate(-3em, -20em);
-        transform: translate(-3em, -20em);
+        -webkit-transform: translateY(1000px) rotate(720deg) ;
+        -moz-transform: translateY(1000px) rotate(720deg) ;
+        -o-transform: translateY(1000px) rotate(720deg) ;
+        -ms-transform: translateY(1000px) rotate(720deg) ;
+        transform: translateY(1000px) rotate(720deg) ;
+    }
+
+}
+
+@keyframes moving-boxes-bottom {
+
+    0% {
+        /* translate(x, y) */
+        -webkit-transform: translateY(500px) rotate(0deg) ;
+        -moz-transform: translateY(500px) rotate(0deg) ;
+        -o-transform: translateY(500px) rotate(0deg) ;
+        -ms-transform: translateY(500px) rotate(0deg) ;
+        transform: translateY(500px) rotate(0deg) ;
+    }
+
+    100% {
+        -webkit-transform: translateY(-1000px) rotate(720deg) ;
+        -moz-transform: translateY(-1000px) rotate(720deg) ;
+        -o-transform: translateY(-1000px) rotate(720deg) ;
+        -ms-transform: translateY(-1000px) rotate(720deg) ;
+        transform: translateY(-1000px) rotate(720deg) ;
+    }
+
+}
+
+@keyframes gradientTransition {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
     }
 
 }
