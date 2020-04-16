@@ -6,7 +6,7 @@ svg {
 }
 
 header {
-    background-image: linear-gradient(#84dcea, #2d76c4);
+    /* background-image: linear-gradient(#84dcea, #2d76c4); */
     position: absolute;
     height: 500px;
     width: 100%;
@@ -27,18 +27,17 @@ header {
 
 .profile-card-body {
     height: 450px !important;
-    overflow-y: scroll;
     padding: 15px !important;
 }
 
 .profile-body {
     max-height: 400px;
-    overflow-y: scroll;
 }
 
 .profile-pic {
     float: left !important;
     margin-right: 10px;
+    border-radius: 50px;
 }
 
 .border-less {
@@ -48,7 +47,7 @@ header {
 
 .slide-left {
     /* position: absolute; */
-    left: -500px;
+    left: -400px;
     opacity: 0;
     -webkit-animation: slide-left 1s forwards;
     /* -webkit-animation-delay: 1s; */
@@ -58,7 +57,7 @@ header {
 
 .slide-right {
     /* position: absolute; */
-    right: -500px;
+    right: -400px;
     opacity: 0;
     -webkit-animation: slide-right 1s forwards;
     /* -webkit-animation-delay: 1s; */
@@ -68,14 +67,14 @@ header {
 
 @-webkit-keyframes slide-left {
     100% {
-        left: 0;
+        left: -100px;
         opacity: 1;
     }
 }
 
 @keyframes slide-left {
     100% {
-        left: 0;
+        left: -100px;
         opacity: 1;
     }
 }

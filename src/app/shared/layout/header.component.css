@@ -13,7 +13,7 @@
 }
 
 .navbar {
-    background-image: linear-gradient(#aff4ff, #62d4f4);
-    /* background: white; */
+    /* background-image: linear-gradient(#aff4ff, #62d4f4); */
+    background: white;
     height: 70px;
 }
