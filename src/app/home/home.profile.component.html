@@ -5,24 +5,60 @@
     </svg>
 </header>
 
-<div class="container-fluid" id="profile-view">
+<div class="container-fluid">
 
     <div class="row" *ngIf="cards">
-        <div class="col-xs-12 wrapper">
-            <div    class="ml-md-auto card profile-card border-less"
-                    [ngClass]="{'slide-left': slideIn}">
+        <div class="col-xs-12 wrapper" id="profile-view">
+            <div    class="profile-bio profile-card border-less"
+                    [ngClass]="{'slide-middle': profileSlideIn}">
                 <div class="row no-gutters">
-                    <div class="col-md-12 profile-card-body">
-                        <img class="profile-pic" src="{{cards[0].image}}" alt="...">
-                        <h5 class="card-title">{{cards[0].name}}</h5>
-                        <p class="card-text" [innerHTML]="cards[0].body"></p>
+                    <div class="col-md-12 row profile-card-body">
+                        <div class="col-sm-12 col-md-5 profile-pic-section">
+                            <img class="profile-pic" src="{{cards[0].image}}" alt="...">
+                        </div>
+                        <div class="col-sm-12 col-md-7">
+                            <h5 class="card-title">{{cards[0].name}}</h5>
+                            <p class="card-text" [innerHTML]="cards[0].body"></p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 wrapper">
+
+        <div class="col-xs-12 wrapper" id="jobs-view">
+            <div class="profile-card row border-less jobs-category"
+                 [ngClass]="{'slide-middle': jobsSlideIn}">
+                <h3 class="col-xs-12 jobs-title">Where I've Worked</h3>
+                <div class="col-xs-3">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                    <div class="tab-pane show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        I am here
+                    </div>
+                    <div class="tab-pane" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        Npe right here
+                    </div>
+                    <div class="tab-pane" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        Raw denim 
+                    </div>
+                    <div class="tab-pane" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                        BobaWorld
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 wrapper" id="resources-view">
             <div    class="card profile-card"
-                    [ngClass]="{'slide-right': slideIn}">
+                    [ngClass]="{'slide-middle': resourcesSlideIn}">
                 <div class="card-body">
                     <h5 class="card-title">{{cards[1].name}}</h5>
                     <p class="card-text" [innerHTML]="cards[1].body"></p>

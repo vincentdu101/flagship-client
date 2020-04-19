@@ -20,8 +20,9 @@ header {
 
 .profile-card {
     max-width: 600px;
-    height: 450px;
+    height: 550px;
     opacity: 0;
+    margin: auto;
     margin-bottom: 50px;
 }
 
@@ -34,10 +35,28 @@ header {
     max-height: 400px;
 }
 
+.card-title {
+    text-align: center;
+}
+
+.jobs-title {
+    text-align: center;
+}
+
+.profile-pic-section {
+    margin-bottom: 50px;
+}
+
 .profile-pic {
-    float: left !important;
     margin-right: 10px;
-    border-radius: 50px;
+    border-radius: 150px;
+    width: 300px;
+    display: flex;
+    margin: auto;
+}
+
+.profile-bio {
+    max-width: 1000px;
 }
 
 .border-less {
@@ -46,8 +65,8 @@ header {
 }
 
 .slide-left {
-    /* position: absolute; */
-    left: -400px;
+    position: relative;
+    left: 400px;
     opacity: 0;
     -webkit-animation: slide-left 1s forwards;
     /* -webkit-animation-delay: 1s; */
@@ -55,8 +74,17 @@ header {
     /* animation-delay: 1s; */
 }
 
+.slide-middle {
+    position: relative;
+    opacity: 0;
+    -webkit-animation: slide-middle 1s forwards;
+    /* -webkit-animation-delay: 1s; */
+    animation: slide-middle 1s forwards;
+    /* animation-delay: 1s; */
+}
+
 .slide-right {
-    /* position: absolute; */
+    position: relative;
     right: -400px;
     opacity: 0;
     -webkit-animation: slide-right 1s forwards;
@@ -67,14 +95,26 @@ header {
 
 @-webkit-keyframes slide-left {
     100% {
-        left: -100px;
+        left: 1000px;
         opacity: 1;
     }
 }
 
 @keyframes slide-left {
     100% {
-        left: -100px;
+        left: 1000px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes slide-middle {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-middle {
+    100% {
         opacity: 1;
     }
 }
@@ -92,3 +132,4 @@ header {
         opacity: 1;
     }
 }
+

@@ -26,9 +26,9 @@ export class ViewService {
         let rect = el.getBoundingClientRect();
         
         return (
-            rect.top >= 0 &&
+            rect.top >= 50 &&
             rect.left >= 0 &&
-            rect.bottom <= window.scrollY
+            rect.bottom <= window.scrollY + 50
         );
 	}
 	
@@ -42,9 +42,9 @@ export class ViewService {
         let rect = el.getBoundingClientRect();
         
         return (
-            rect.top >= 0 &&
+            rect.top >= 50 &&
             rect.left >= 0 &&
-            rect.top <= window.scrollY
+            rect.top <= window.scrollY + 50
         );
     }
 
