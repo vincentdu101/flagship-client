@@ -8,12 +8,14 @@ import { Article, ArticlesService, CATEGORIES, ViewService } from '../core';
 })
 export class HomeProfileComponent implements OnInit {
 
-    public cards: Article[];
-    public jobs: Article[];
+    public cards: Article[] = [];
+    public jobs: Article[] = [];
+    public jobCategories: string[] = [];
     public profileSlideIn: boolean = false;
     public jobsSlideIn: boolean = false;
     public resourcesSlideIn: boolean = false;
     public active: string = "top";
+    public selectedCategory: string;
 
     constructor(
         private articlesService: ArticlesService,
@@ -27,6 +29,10 @@ export class HomeProfileComponent implements OnInit {
         this.showVisibleViews();
     }
 
+    selectCategory(category: string): void {
+        this.selectedCategory = category;
+    }
+
     private loadProfileInfo(): void {
         this.articlesService.findByCategory(CATEGORIES.PERSONAL).subscribe((data) => {
             this.cards = data;
@@ -36,6 +42,13 @@ export class HomeProfileComponent implements OnInit {
     private loadEmploymentInfo(): void {
         this.articlesService.findByCategory(CATEGORIES.EMPLOYMENT).subscribe((data) => {
             this.jobs = data;
+
+            for (let job of this.jobs) {
+                if (!this.selectedCategory) {
+                    this.selectedCategory = job.name;
+                }
+                this.jobCategories.push(job.name);
+            }
         });
     }
 

@@ -23,12 +23,29 @@ header {
     height: 550px;
     opacity: 0;
     margin: auto;
-    margin-bottom: 50px;
 }
 
 .profile-card-body {
     height: 450px !important;
     padding: 15px !important;
+}
+
+.jobs-area {
+    max-width: 900px;
+    opacity: 0;
+    margin: auto;
+}
+
+.job-body {
+    background: black;
+    color: white;
+    padding: 15px;
+    min-height: 450px;
+    max-height: 450px;
+}
+
+.jobs-summary {
+    height: 500px;
 }
 
 .profile-body {
