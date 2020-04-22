@@ -7,8 +7,8 @@
 }
 
 .jumbotron {
-    background: #2d76c4 !important;
-    color: white !important;
+    background: white !important;
+    color: black !important;
     text-align: center;
 }
 
@@ -23,7 +23,7 @@
     width: 400px !important;
 }
 
-.card img {
+.card-caption {
     width: 400px !important;
     height: 300px !important;
 }

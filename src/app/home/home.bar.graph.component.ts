@@ -12,7 +12,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
     @ViewChild("bar-chart") barChart: ElementRef; 
     public width: number;
-    public margin = {top: 30, right: 20, bottom: 10, left: 100};
+    public margin = {top: 30, right: 0, bottom: 10, left: 100};
     public data: Article[] = [
         {image: "", name: "", description: "", body: "", category: "", demo: ""}
     ];
@@ -21,9 +21,8 @@ export class HomeBarGraphComponent implements AfterContentInit {
     private x: d3.ScaleLinear<number, number>;
     private y: d3.ScaleBand<string>;
     private yAxis;
-    private colors = [
-        "blue", "green", "orange", "yellow", "gray", "gold", "aqua", "brown", "black"
-    ];
+    private colors = ["#f7fbff","#e3eef9","#cfe1f2","#b5d4e9","#93c3df","#6daed5","#4b97c9","#2f7ebc","#1864aa","#0a4a90","#08306b"];
+
     public selected = {
         name: "Select a bar to learn more", description: "", image: "", body: ""
     };
@@ -38,6 +37,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 this.createBarChart();
             }
         });
+        this.colors = this.colors.reverse();
     }
 
     private adjustDimensions(): void {
@@ -64,7 +64,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         if (!this.data) {
             return 0;
         }
-        return (this.data.length * 25) + this.margin.top + this.margin.bottom;
+        return (this.data.length * 35) + this.margin.top + this.margin.bottom;
     }
 
     private getXScaleLinear(): d3.ScaleLinear<number, number> {
@@ -80,7 +80,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 .padding(0.1);
     }
 
-    private generateRectangles(svg) {
+    private generateRectangles(svg): void {
         let rect = svg.append("g")
             .selectAll("rect")
                 .data(this.data)
@@ -96,7 +96,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
             .attr("data-index", (d, i) => i)
             .attr("fill", (d, i) => this.colors[i])
             .attr("width", d => this.x(d.description) - this.x(0))
-            .delay((d, i) => i * 300);
+            .delay((d, i) => 1000);
 
         rect.on("mouseover", (element) => {
             let bar = document.getElementById(element.name);
@@ -110,7 +110,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         });
     }
 
-    private createBarChart() {
+    private createBarChart(): void {
         if (this.data[0].name === "") {
             return;
         }
@@ -126,12 +126,14 @@ export class HomeBarGraphComponent implements AfterContentInit {
 
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
-            .style("font-size", "12px")
-            .call(d3.axisLeft(this.y).tickSizeOuter(0))
-            .selectAll("path")
-                .attr("display", "none");
+                .style("font-size", "14px")
+                .attr("fill", "green")
+                .call(d3.axisLeft(this.y).tickSizeOuter(0))
+                .selectAll("path")
+                    .attr("display", "none");
+
             g.selectAll("line")
-            .attr("display", "none");   
+                .attr("display", "none");   
         }
 
         this.generateRectangles(svg);
@@ -139,7 +141,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         svg.append("g")
             .attr("fill", "white")
             .attr("text-anchor", "end")
-            .style("font", "12px sans-serif")
+            .style("font", "14px sans-serif")
             .selectAll("text")
                 .data(this.data)
             .enter().append("text")

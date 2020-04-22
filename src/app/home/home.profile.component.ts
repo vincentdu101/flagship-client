@@ -13,6 +13,7 @@ export class HomeProfileComponent implements OnInit {
     public jobCategories: string[] = [];
     public profileSlideIn: boolean = false;
     public jobsSlideIn: boolean = false;
+    public jobsHorizontalSlideIn: boolean = false;
     public resourcesSlideIn: boolean = false;
     public active: string = "top";
     public selectedCategory: string;
@@ -25,7 +26,7 @@ export class HomeProfileComponent implements OnInit {
     ngOnInit() {
         this.loadProfileInfo();
         this.loadEmploymentInfo();
-        this.addScrollEventListener();
+        this.addEventListeners();
         this.showVisibleViews();
     }
 
@@ -52,8 +53,12 @@ export class HomeProfileComponent implements OnInit {
         });
     }
 
-    private addScrollEventListener(): void {
+    private addEventListeners(): void {
         window.addEventListener("scroll", () => {
+            this.showVisibleViews();
+        });
+
+        window.addEventListener("resize", () => {
             this.showVisibleViews();
         });
     }
@@ -62,6 +67,7 @@ export class HomeProfileComponent implements OnInit {
         if (this.cards.length > 0 && this.jobs.length > 0) {
             this.profileSlideIn = this.viewService.isScrolledIntoViewTop("profile-view");
             this.jobsSlideIn = this.viewService.isScrolledIntoViewTop("jobs-view");
+            this.jobsHorizontalSlideIn = this.viewService.isScrolledIntoViewTop("jobs-horizontal-view");
             this.resourcesSlideIn = this.viewService.isScrolledIntoViewTop("resources-view");
         }
     }
