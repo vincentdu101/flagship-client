@@ -6,30 +6,27 @@
 </div>
 
 <div class="container-fluid" id="home-card-carousel" *ngIf="cards">
-    <div    class="row m-auto"
-            [ngClass]="{'single': smallWindow}">
+    <div    class="row card-vertical-view">
         <div  class="card" 
                 *ngFor="let card of cards" 
                 [@openClose]="isOpen ? 'open' : 'closed'">
             <img src="{{card?.image}}" 
                 class="card-img-top" />
             <h3 class="card-title">{{card?.name}}</h3>
-            <p [innerHTML]="card?.description"></p>
             <p [innerHTML]="card?.body"></p>
         </div>
     </div>
 
-    <div class="col-xs-12 row" *ngFor="let card of cards">
+    <div class="col-xs-12 row card-horizontal-view" *ngFor="let card of cards">
 
-        <div class="col-xs-4">
-            <img src="{{card?.image}}" class="card-caption" />
+        <div class="col-xs-8 image-column">
+            <img src="{{card?.image}}" class="card-caption img-fluid" />
         </div>
 
-        <div class="col-xs-8">
+        <div class="col-xs-4 summary-column">
             <div class="card-summary">
                 <h3 class="card-title">{{card?.name}}</h3>
-                <p [innerHTML]="card?.description"></p>
-                <p [innerHTML]="card?.body"></p>
+                <p class="summary-body" [innerHTML]="card?.body"></p>
             </div>
         </div>
 
