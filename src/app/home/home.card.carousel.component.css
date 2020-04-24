@@ -10,6 +10,10 @@
     border: none;
 }
 
+.card-horizontal-view .card-title {
+    text-align: left;
+}
+
 .card-vertical-view {
     display: none !important;
 }
