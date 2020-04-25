@@ -41,7 +41,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     private adjustDimensions(): void {
-        this.width = window.innerWidth > 1200 ? 500 : 450;
+        this.width = window.innerWidth > 1200 ? 900 : 450;
     }
 
     ngAfterContentInit() {
@@ -106,7 +106,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
             let color = this.colors[parseInt(bar.dataset.index, 10)];
             bar.style.fill = color;
         }).on("click", (element) => {
-            this.selected = element;
+            // this.selected = element;
         });
     }
 

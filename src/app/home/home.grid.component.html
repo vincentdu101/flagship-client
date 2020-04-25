@@ -10,22 +10,15 @@
   <div class="container-fluid" id="home-grid">
     
       <div class="row" [@openClose]="isOpen ? 'open' : 'closed'" *ngIf="grids">
-        <div  class="m-auto card col-xs-12 col-sm-8 col-md-6 col-lg-4" 
-              *ngFor="let grid of grids"
-              (mouseover)="togglePopInEffect(grid._id)"
-              (mouseout)="togglePopInEffect(grid._id)">
-            <img  class="grid-image"
-                  *ngIf="grid.image"
-                  src="{{grid.image}}" />
-            <div  class="pop-in" 
-                  [@popInCenter]="gridAnims[grid._id].isPop ? 'appear' : 'disappear'">              
-              <h5>{{grid.name}}</h5><br />
+        <div  class="m-auto card" 
+              *ngFor="let grid of grids">
+              <h5 class="card-header">{{grid.name}}</h5><br />
               <p>{{grid.description}}</p>
-              <button class="btn btn-secondary"
+
+              <div class="col-xs-12 button-row">
+                <button class="btn btn-primary"
                       (click)="viewArticle(grid._id)">View</button>
-              <a class="demo-btn btn btn-secondary" *ngIf="grid.demo"
-                      href="{{grid.demo}}" target="_blank">Demo</a>
-            </div>
+              </div>             
           </div>
       </div>
   </div>

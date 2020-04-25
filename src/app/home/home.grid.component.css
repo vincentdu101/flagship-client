@@ -1,16 +1,21 @@
 .card {
     height: 200px !important;
     margin-top: 0px !important;
-    margin-bottom: 0px !important;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-    border: 2px solid white !important;
+    margin-bottom: 30px !important;
+    border: 2px solid black !important;
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    width: 350px !important;
+    height: 350px !important;
+    padding: 15px;
+    box-shadow: 5px 10px lightgrey;
 }
 
 .row {
-    padding: 70px 20px 20px 20px;
+    /* padding: 70px 20px 20px 20px; */
     /* height: 500px; */
     /* margin-top: 50px; */
+    justify-content: center;
 }
 
 .container-fluid {
@@ -20,8 +25,11 @@
     /* border: 1px solid black; */
 }
 
-.grid-cover {
-    /* background: rgb(61, 61, 62); */
+.button-row {
+    position: absolute;
+    top: 290px;
+    margin: auto;
+    left: 125px;
 }
 
 .jumbotron {
@@ -53,4 +61,8 @@ img {
 
 .demo-btn {
     margin-left: 10px !important;
+}
+
+.card-header {
+    text-align: center;
 }
