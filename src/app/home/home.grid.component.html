@@ -16,8 +16,9 @@
               <p>{{grid.description}}</p>
 
               <div class="col-xs-12 button-row">
-                <button class="btn btn-primary"
-                      (click)="viewArticle(grid._id)">View</button>
+                <a class="demo-btn btn btn-primary" *ngIf="grid.demo"
+                      href="{{grid.demo}}" target="_blank">View</a>
+
               </div>             
           </div>
       </div>

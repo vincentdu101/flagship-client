@@ -51,7 +51,8 @@ header {
 }
 
 .jobs-summary {
-    height: 500px;
+    min-height: 600px;
+    margin-bottom: 100px;
 }
 
 #jobs-horizontal-view {
@@ -118,6 +119,22 @@ header {
     /* -webkit-animation-delay: 1s; */
     animation: slide-right 1s forwards;
     /* animation-delay: 1s; */
+}
+
+.hide-view {
+    position: relative;
+    opacity: 1;
+    -webkit-animation: hide-animation 1s forwards;
+    animation: hide-animation 1s forwards;
+}
+
+@-webkit-keyframes hide-animation {
+    100% { opacity: 0; }
+}
+
+
+@keyframes hide-animation {
+    100% { opacity: 0; }
 }
 
 @-webkit-keyframes slide-left {

@@ -13,8 +13,6 @@ export class HomeProfileComponent implements OnInit {
     public jobCategories: string[] = [];
     public profileSlideIn: boolean = false;
     public jobsSlideIn: boolean = false;
-    public jobsHorizontalSlideIn: boolean = false;
-    public resourcesSlideIn: boolean = false;
     public active: string = "top";
     public selectedCategory: string;
 
@@ -65,10 +63,12 @@ export class HomeProfileComponent implements OnInit {
 
     private showVisibleViews(): void {
         if (this.cards.length > 0 && this.jobs.length > 0) {
-            this.profileSlideIn = this.viewService.isScrolledIntoViewTop("profile-view");
-            this.jobsSlideIn = this.viewService.isScrolledIntoViewTop("jobs-view");
-            this.jobsHorizontalSlideIn = this.viewService.isScrolledIntoViewTop("jobs-horizontal-view");
-            this.resourcesSlideIn = this.viewService.isScrolledIntoViewTop("resources-view");
+            this.profileSlideIn = this.viewService.isScrolledIntoView("profile-view");
+            
+            let jobsCategory = this.viewService.isScrolledIntoView("jobs-view");
+            let jobsList = this.viewService.isScrolledIntoView("jobs-list");
+            let jobsSummary = this.viewService.isScrolledIntoView("jobs-summary");
+            this.jobsSlideIn = jobsCategory || jobsSummary || jobsList;
         }
     }
 

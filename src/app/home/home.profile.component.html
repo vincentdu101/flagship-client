@@ -27,26 +27,33 @@
 
         <div class="col-xs-12 wrapper" id="jobs-view">
             <div class="jobs-area row border-less jobs-category"
-                 [ngClass]="{'slide-middle': jobsSlideIn}">
+                 [ngClass]="{
+                     'slide-middle': jobsSlideIn,
+                     'hide-view': !jobsSlideIn
+                }">
                 <div class="col-xs-12">
                     <h3 class="jobs-title">Where I've Worked</h3>
                 </div>
-                <div class="col-xs-12 row jobs-summary">
-                    <div class="col-xs-4">
-                        <div *ngIf="jobs" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                            <a *ngFor="let category of jobCategories"
-                                class="nav-link" 
-                                id="v-pills-{{category}}-tab"
-                                data-toggle="pill"
-                                href="#v-pills-{{category}}"
-                                role="tab" 
-                                [ngClass]="{'active': category === selectedCategory}"
-                                (click)="selectCategory(category)">
-                                {{category}}
-                            </a>
+                <div class="col-xs-12 row jobs-summary" id="jobs-list">
+                    <div class="col-xs-12">
+                        <div *ngIf="jobs">
+                            <ul class="nav nav-pills nav-fill">
+                                <li *ngFor="let category of jobCategories"
+                                    class="nav-item">
+                                    <a class="nav-link active"
+                                        id="v-pills-{{category}}-tab"
+                                        data-toggle="pill"
+                                        href="#v-pills-{{category}}"
+                                        role="tab" 
+                                        [ngClass]="{'active': category === selectedCategory}"
+                                        (click)="selectCategory(category)">
+                                        {{category}}
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-xs-8">
+                    <div class="col-xs-12" id="jobs-summary">
                         <div *ngIf="jobs" class="tab-content" id="v-pills-tabContent">
                             <div *ngFor="let job of jobs"
                                 class="job-body tab-pane show" 
@@ -57,48 +64,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-xs-12 wrapper" id="jobs-horizontal-view">
-            <div class="jobs-area row border-less jobs-category"
-                [ngClass]="{'slide-middle': jobsHorizontalSlideIn}">
-            <div class="col-xs-12">
-                <h3 class="jobs-title">Where I've Worked</h3>
-            </div>                
-            <div class="col-xs-12 row jobs-summary">
-                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item" *ngFor="let category of jobCategories">
-                        <a  class="nav-link" 
-                            id="v-pills-{{category}}-tab"
-                            data-toggle="pill"
-                            href="#v-pills-{{category}}"
-                            role="tab" 
-                            [ngClass]="{'active': category === selectedCategory}"
-                            (click)="selectCategory(category)">
-                            {{category}}
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div *ngFor="let job of jobs"
-                        class="job-body tab-pane show" 
-                        id="v-pills-{{job.name}}" 
-                        role="tabpanel" 
-                        [innerHTML]="job.body"
-                        [ngClass]="{'active': job.name === selectedCategory}">
-                    </div>
-                </div>
-            </div>
-        </div>  
-
-        <div class="col-xs-12 wrapper" id="resources-view">
-            <div    class="card profile-card"
-                    [ngClass]="{'slide-middle': resourcesSlideIn}">
-                <div class="card-body">
-                    <h5 class="card-title">{{cards[1].name}}</h5>
-                    <p class="card-text" [innerHTML]="cards[1].body"></p>
                 </div>
             </div>
         </div>
