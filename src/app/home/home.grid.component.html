@@ -9,13 +9,30 @@
 <div class="grid-cover">
   <div class="container-fluid" id="home-grid">
     
+      <div class="categories-row row" *ngIf="getCategories()">
+        <ul class="nav nav-pills justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link"
+              [ngClass]="{'active': currentCategory === ''}"
+              (click)="setCategory('')">ALL</a>
+          </li>
+          <li class="nav-item"
+              *ngFor="let category of getCategories()">
+            <a class="nav-link"
+              [ngClass]="{'active': currentCategory === category}"
+              (click)="setCategory(category)">{{category}}</a>
+          </li>
+        </ul>
+      </div>
+
       <div class="row" [@openClose]="isOpen ? 'open' : 'closed'" *ngIf="grids">
-        <div  class="m-auto card" 
-              *ngFor="let grid of grids">
+        <div  class="m-auto grid" 
+              *ngFor="let grid of grids"
+              [ngClass]="getGridListClasses(grid)">
               <h5 class="card-header">{{grid.name}}</h5><br />
               <p>{{grid.description}}</p>
 
-              <div class="col-xs-12 button-row">
+              <div class="col-xs-12 row justify-center-content button-row">
                 <a class="demo-btn btn btn-primary" *ngIf="grid.demo"
                       href="{{grid.demo}}" target="_blank">View</a>
 

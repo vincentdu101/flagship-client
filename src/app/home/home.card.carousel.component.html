@@ -19,15 +19,30 @@
 
     <div class="col-xs-12 row card-horizontal-view" *ngFor="let card of cards">
 
-        <div class="col-xs-8 image-column">
+        <div *ngIf="this.cardLayout[card._id]"
+            class="col-xs-8 image-column">
             <img src="{{card?.image}}" class="card-caption img-fluid" />
         </div>
 
-        <div class="col-xs-4 summary-column">
+        <div  *ngIf="this.cardLayout[card._id]" 
+            class="col-xs-4 summary-column">
             <div class="card-summary">
                 <h3 class="card-title">{{card?.name}}</h3>
                 <p class="summary-body" [innerHTML]="card?.body"></p>
             </div>
+        </div>
+
+        <div  *ngIf="!this.cardLayout[card._id]" 
+            class="col-xs-4 summary-column">
+            <div class="card-summary">
+                <h3 class="card-title">{{card?.name}}</h3>
+                <p class="summary-body" [innerHTML]="card?.body"></p>
+            </div>
+        </div> 
+
+         <div *ngIf="!this.cardLayout[card._id]"
+            class="col-xs-8 image-column">
+            <img src="{{card?.image}}" class="card-caption img-fluid" />
         </div>
 
     </div>

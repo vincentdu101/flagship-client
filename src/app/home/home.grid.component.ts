@@ -45,6 +45,8 @@ export class HomeGridComponent implements OnInit {
     public grids: Article[] = [];
     public isOpen = false;
     public gridAnims = {};
+    public categories = {};
+    public currentCategory = "";
 
     constructor(
         private articlesService: ArticlesService,
@@ -59,6 +61,9 @@ export class HomeGridComponent implements OnInit {
             this.grids = data;
             for (const grid of this.grids) {
                 this.gridAnims[grid._id] = {isPop: false};
+                if (!this.categories[grid.description]) {
+                    this.categories[grid.description] = true;
+                }
             }
             this.toggleCardsVisibleAfterScroll();
         });
@@ -78,6 +83,21 @@ export class HomeGridComponent implements OnInit {
 
     public viewArticle(id: string): void {
         this.router.navigateByUrl("/article/" + id);
+    }
+
+    public getCategories(): string[] {
+        return Object.keys(this.categories);
+    }
+
+    public setCategory(category: string): void {
+        this.currentCategory = category;
+    }
+
+    public getGridListClasses(grid: Article): {} {
+        return {
+            'hide': grid.description !== this.currentCategory && this.currentCategory !== "",
+            'show': grid.description === this.currentCategory || this.currentCategory === ""
+        }
     }
 
 }

@@ -29,6 +29,7 @@ export class HomeCardCarouselComponent implements AfterContentInit {
     public cards: Article[] = [
         {image: "", name: "", description: "", body: "", category: "", demo: ""}
     ];
+    public cardLayout = {};
     public isOpen = false;
     public smallWindow = window.innerWidth <= this.singleThreshold;
 
@@ -44,18 +45,12 @@ export class HomeCardCarouselComponent implements AfterContentInit {
 
     ngAfterContentInit() {
         this.articlesService.findByCategory(CATEGORIES.SKILLS).subscribe((data: Article[]) => {
-            // let interval = []
-            // for (let card of data) {
-            //     if (interval.length === 3) {
-            //         this.cards.push(interval);
-            //         interval = [];
-            //     }
-            //     interval.push(card);
-            // }
-            // if (interval.length > 0) {
-            //     this.cards.push(interval);
-            // }
             this.cards = data;
+
+            for (let i = 0; i < this.cards.length; i++) {
+                this.cardLayout[this.cards[i]._id] = i % 2 == 0;
+            }
+
             this.toggleCardsVisibleAfterScroll();
         });
     }

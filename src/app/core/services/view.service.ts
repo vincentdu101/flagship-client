@@ -24,9 +24,7 @@ export class ViewService {
 		}
 
 		let rect = el.getBoundingClientRect();
-		console.log("el ", el, el.id);
-		console.log("rect ", rect, el.id);
-		console.log("window.scrollY ", window.scrollY, el.id);
+
         return (
             (rect.top >= 50 || rect.bottom <= 50) &&
 			(rect.top <= window.scrollY + 50 ||
