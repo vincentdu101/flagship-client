@@ -13,7 +13,7 @@
             <img src="{{card?.image}}" 
                 class="card-img-top" />
             <h3 class="card-title">{{card?.name}}</h3>
-            <p [innerHTML]="card?.body"></p>
+            <p class="vert-body" [innerHTML]="card?.body"></p>
         </div>
     </div>
 
@@ -29,6 +29,7 @@
             <div class="card-summary">
                 <h3 class="card-title">{{card?.name}}</h3>
                 <p class="summary-body" [innerHTML]="card?.body"></p>
+                <span class="summary-description">{{card?.description}}</span>
             </div>
         </div>
 
@@ -37,6 +38,7 @@
             <div class="card-summary">
                 <h3 class="card-title">{{card?.name}}</h3>
                 <p class="summary-body" [innerHTML]="card?.body"></p>
+                <span class="summary-description">{{card?.description}}</span>
             </div>
         </div> 
 

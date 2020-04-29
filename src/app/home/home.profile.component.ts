@@ -64,11 +64,7 @@ export class HomeProfileComponent implements OnInit {
     private showVisibleViews(): void {
         if (this.cards.length > 0 && this.jobs.length > 0) {
             this.profileSlideIn = this.viewService.isScrolledIntoView("profile-view");
-            
-            let jobsCategory = this.viewService.isScrolledIntoView("jobs-view");
-            let jobsList = this.viewService.isScrolledIntoView("jobs-list");
-            let jobsSummary = this.viewService.isScrolledIntoView("jobs-summary");
-            this.jobsSlideIn = jobsCategory || jobsSummary || jobsList;
+            this.jobsSlideIn = this.viewService.isScrolledIntoView("jobs-summary");
         }
     }
 

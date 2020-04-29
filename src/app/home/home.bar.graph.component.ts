@@ -41,7 +41,18 @@ export class HomeBarGraphComponent implements AfterContentInit {
     }
 
     private adjustDimensions(): void {
-        this.width = window.innerWidth > 1200 ? 900 : 450;
+        this.width = window.innerWidth - 100 - this.margin.left;
+
+        if (this.width > 1000) {
+            this.width = 1000;
+        }
+    }
+
+    private updateView(): void {
+        this.adjustDimensions();
+        if (this.viewService.isScrolledIntoView("bar-chart")) {
+            this.createBarChart();
+        }
     }
 
     ngAfterContentInit() {
@@ -51,11 +62,12 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 this.createBarChart();
             }
 
+            window.addEventListener("blur", () => {
+                this.updateView();
+            });
+
             window.addEventListener("resize", () => {
-                this.adjustDimensions();
-                if (this.viewService.isScrolledIntoView("bar-chart")) {
-                    this.createBarChart();
-                }
+                this.updateView();
             });
         });
     }
@@ -96,7 +108,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
             .attr("data-index", (d, i) => i)
             .attr("fill", (d, i) => this.colors[i])
             .attr("width", d => this.x(d.description) - this.x(0))
-            .delay((d, i) => 1000);
+            .duration((d, i) => 2000);
 
         rect.on("mouseover", (element) => {
             let bar = document.getElementById(element.name);
@@ -124,6 +136,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         svg.attr("width", this.width)
             .attr("height", this.determineHeight());
 
+        // y-axis text
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
                 .style("font-size", "14px")
@@ -136,20 +149,26 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 .attr("display", "none");   
         }
 
+        // actual bars
         this.generateRectangles(svg);
 
+        // text labels in bars
         svg.append("g")
             .attr("fill", "white")
             .attr("text-anchor", "end")
             .style("font", "14px sans-serif")
             .selectAll("text")
                 .data(this.data)
-            .enter().append("text")
-                .attr("x", d => this.x(parseInt(d.description, 10)) - 4)
-                .attr("y", d => this.y(d.name) + this.y.bandwidth() / 2)
-                .attr("dy", "0.35em")
-                .attr("color", "black")
-                .text(d => d.description);    
+            .enter()
+                .append("text")
+                    .attr("x", d => 0)
+                    .attr("y", d => this.y(d.name) + this.y.bandwidth() / 2)
+                .transition()
+                    .attr("x", d => this.x(parseInt(d.description, 10)) - 4)
+                    .attr("dy", "0.35em")
+                    .attr("color", "black")
+                    .text(d => d.description)
+                    .duration((d, i) => 2000);    
         
         svg.append("g").call(this.yAxis);
     }

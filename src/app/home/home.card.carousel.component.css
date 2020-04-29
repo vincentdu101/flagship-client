@@ -22,6 +22,14 @@
     display: flex !important;
     height: 500px;
     margin-bottom: 100px;
+    padding-top: 50px;
+    /* border-top: 1px solid red;
+    border-bottom: 1px solid red;
+    margin: auto; */
+}
+
+.card-vertical-view .card-title {
+    color: black;
 }
 
 .image-column {
@@ -34,6 +42,20 @@
 
 .summary-body > span {
     text-align: center;
+}
+
+.summary-description {
+    border: 1px solid aquamarine;
+    padding: 30px;
+    position: absolute;
+    color: white;
+    /* background: darkblue; */
+    width: 300px;
+    height: 150px;
+}
+
+.vert-body {
+    margin: auto;
 }
 
 .jumbotron {
@@ -55,7 +77,18 @@
 }
 
 .card-caption {
+    position: relative;
     margin: auto;
+    border: 3px solid white;
+    transition: top linear 2s;
+    transition: left linear 2s;
+    transition: box-shadow linear 0.5s;
+}
+
+.card-caption:hover {
+    top: -5px;
+    left: -5px;
+    box-shadow: 5px 5px white;
 }
 
 .container-fluid {
@@ -63,6 +96,7 @@
     padding-top: 50px;
     /* border: 1px solid black; */
 }
+
 
 
 h3 {
@@ -88,7 +122,7 @@ a.ng-star-inserted, a.ng-star-inserted {
     width: 500px !important;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 1024px) {
 
     .card-vertical-view {
         display: flex !important;
