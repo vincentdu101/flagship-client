@@ -36,6 +36,7 @@ header {
 .profile-card-body {
     height: 450px !important;
     padding: 15px !important;
+    color: white;
 }
 
 .jobs-area {
@@ -69,6 +70,7 @@ header {
 
 .jobs-title {
     text-align: center;
+    color: white;
 }
 
 .profile-pic-section {
@@ -90,6 +92,10 @@ header {
 .border-less {
     border: none !important;
     box-shadow: none !important;
+}
+
+.nav-link {
+    color: white;
 }
 
 .slide-left {
@@ -124,8 +130,8 @@ header {
 .hide-view {
     position: relative;
     opacity: 1;
-    -webkit-animation: hide-animation 1s forwards;
-    animation: hide-animation 1s forwards;
+    /* -webkit-animation: hide-animation 1s forwards;
+    animation: hide-animation 1s forwards; */
 }
 
 @-webkit-keyframes hide-animation {

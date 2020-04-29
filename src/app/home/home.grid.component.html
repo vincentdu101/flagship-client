@@ -18,7 +18,7 @@
           </li>
           <li class="nav-item"
               *ngFor="let category of getCategories()">
-            <a class="nav-link"
+            <a class="nav-link nav-pill"
               [ngClass]="{'active': currentCategory === category}"
               (click)="setCategory(category)">{{category}}</a>
           </li>
@@ -30,7 +30,7 @@
               *ngFor="let grid of grids"
               [ngClass]="getGridListClasses(grid)">
               <h5 class="card-header">{{grid.name}}</h5><br />
-              <p>{{grid.description}}</p>
+              <p class="grid-desc">{{grid.description}}</p>
 
               <div class="col-xs-12 row justify-center-content button-row">
                 <a class="demo-btn btn btn-primary" *ngIf="grid.demo"

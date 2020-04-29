@@ -1,3 +1,7 @@
+* {
+    color: white;
+}
+
 .grid {
     margin-top: 0px !important;
     margin-bottom: 30px !important;
@@ -7,9 +11,22 @@
     width: 350px;
     height: 350px;
     padding: 15px;
-    box-shadow: 5px 10px lightgrey;
     display: block;
     position: relative;
+    background: white;
+    transition: top linear 2s;
+    transition: left linear 2s;
+    transition: box-shadow linear 0.5s;
+}
+
+.grid:hover {
+    top: -5px;
+    left: -5px;
+    box-shadow: 5px 10px lightgrey;
+}
+
+.categories-row {
+    margin-top: 15px;
 }
 
 .row {
@@ -38,6 +55,10 @@
     background: white !important;
     color: black;
     text-align: center;
+}
+
+h1, .lead, h5, .grid-desc {
+    color: black;
 }
 
 img {
@@ -80,6 +101,10 @@ img {
 .show {
     -webkit-animation: show-animation 1s forwards;
     animation: show-animation 1s forwards;
+}
+
+.nav-link {
+    cursor: pointer;
 }
 
 @-webkit-keyframes hide-animation {
@@ -143,7 +168,7 @@ img {
         margin-right: 0px;
         border: 0px;
     }
-        
+
     100% {
         margin-top: 0px !important;
         margin-bottom: 30px !important;

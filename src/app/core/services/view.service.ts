@@ -25,10 +25,18 @@ export class ViewService {
 
 		let rect = el.getBoundingClientRect();
 
-        return (
+		console.log("el ", el, el.id);
+		console.log("rect ", rect, el.id);
+		console.log("window ", window.scrollY, el.id);
+		console.log("visible ", (
             (rect.top >= 50 || rect.bottom <= 50) &&
 			(rect.top <= window.scrollY + 50 ||
-			rect.bottom >= window.scrollY + rect.height)
+			rect.bottom >= window.scrollY - rect.height)
+        ), el.id);
+        return (
+            (rect.top >= 50) &&
+			(rect.top <= window.scrollY + rect.height ||
+			rect.bottom >= window.scrollY - rect.height)
         );
     }
 

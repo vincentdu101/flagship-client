@@ -127,7 +127,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
                 .style("font-size", "14px")
-                .attr("fill", "green")
+                .attr("color", "white")
                 .call(d3.axisLeft(this.y).tickSizeOuter(0))
                 .selectAll("path")
                     .attr("display", "none");
@@ -148,6 +148,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
                 .attr("x", d => this.x(parseInt(d.description, 10)) - 4)
                 .attr("y", d => this.y(d.name) + this.y.bandwidth() / 2)
                 .attr("dy", "0.35em")
+                .attr("color", "black")
                 .text(d => d.description);    
         
         svg.append("g").call(this.yAxis);
