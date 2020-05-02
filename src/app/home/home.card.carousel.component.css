@@ -1,3 +1,7 @@
+/* * {
+    color: darkgray;
+} */
+
 .row {
     display: flex !important;
     justify-content: center !important;
@@ -45,11 +49,11 @@
 }
 
 .summary-description {
-    border: 1px solid aquamarine;
+    /* border: 1px solid black; */
+    background: dimgray;
+    color: white;
     padding: 30px;
     position: absolute;
-    color: white;
-    /* background: darkblue; */
     width: 300px;
     height: 150px;
 }
@@ -79,16 +83,11 @@
 .card-caption {
     position: relative;
     margin: auto;
-    border: 3px solid white;
-    transition: top linear 2s;
-    transition: left linear 2s;
     transition: box-shadow linear 0.5s;
 }
 
 .card-caption:hover {
-    top: -5px;
-    left: -5px;
-    box-shadow: 5px 5px white;
+    box-shadow: 5px 5px gray;
 }
 
 .container-fluid {
@@ -115,7 +114,6 @@ a.ng-star-inserted, a.ng-star-inserted {
 
 .card-title {
     margin-top: 10px;
-    color: white;
 }
 
 .row.single {

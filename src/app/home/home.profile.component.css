@@ -1,8 +1,16 @@
+/* * {
+    color: gray;
+} */
+
 svg {
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 10vw;
+}
+
+.card {
+    background-color: black;
 }
 
 #jobs-view {
@@ -36,7 +44,6 @@ header {
 .profile-card-body {
     height: 450px !important;
     padding: 15px !important;
-    color: white;
 }
 
 .jobs-area {
@@ -66,11 +73,20 @@ header {
 
 .card-title {
     text-align: center;
+    color: red;
 }
 
 .jobs-title {
     text-align: center;
-    color: white;
+    color: red;
+}
+
+.nav-item:hover {
+    border: 1px solid red;
+}
+
+.nav-item .active {
+    border: 1px solid blue;
 }
 
 .profile-pic-section {
@@ -92,10 +108,6 @@ header {
 .border-less {
     border: none !important;
     box-shadow: none !important;
-}
-
-.nav-link {
-    color: white;
 }
 
 .slide-left {
@@ -181,17 +193,5 @@ header {
         right: 0;
         opacity: 1;
     }
-}
-
-@media all and (max-width: 600px) {
-    
-    #jobs-view {
-        display: none;
-    }
-
-    #jobs-horizontal-view {
-        display: inline;
-    }
-
 }
 

@@ -1,11 +1,11 @@
-* {
-    color: white;
-}
+/* * {
+    color: gray;
+} */
 
 .grid {
     margin-top: 0px !important;
     margin-bottom: 30px !important;
-    border: 2px solid grey !important;
+    border: 2px solid lightgrey !important;
     margin-left: 15px !important;
     margin-right: 15px !important;
     width: 350px;
@@ -14,15 +14,11 @@
     display: block;
     position: relative;
     background: white;
-    transition: top linear 2s;
-    transition: left linear 2s;
     transition: box-shadow linear 0.5s;
 }
 
 .grid:hover {
-    top: -5px;
-    left: -5px;
-    box-shadow: 5px 10px lightgrey;
+    box-shadow: 5px 5px grey;
 }
 
 .categories-row {

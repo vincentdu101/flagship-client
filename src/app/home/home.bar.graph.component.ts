@@ -140,7 +140,7 @@ export class HomeBarGraphComponent implements AfterContentInit {
         this.yAxis = (g) => {
             g.attr("transform", `translate(${this.margin.left}, 0)`)
                 .style("font-size", "14px")
-                .attr("color", "white")
+                .attr("color", "gray")
                 .call(d3.axisLeft(this.y).tickSizeOuter(0))
                 .selectAll("path")
                     .attr("display", "none");

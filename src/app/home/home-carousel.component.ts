@@ -9,12 +9,7 @@ import {CATEGORIES} from "../core/services/config";
 })
 export class HomeCarouselComponent {
 
-    public slides: any[];
-
-    constructor(private articlesService: ArticlesService) {
-        this.articlesService.findByCategory(CATEGORIES.SLIDESHOW).subscribe((data) => {
-            this.slides = data;
-        });
+    constructor() {
     }
 
 }
