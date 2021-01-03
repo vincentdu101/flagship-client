@@ -1,23 +1,24 @@
-FROM node:10-alpine
+FROM node:10.16.0
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+RUN apt update -y
 
-WORKDIR /home/node/app
+RUN apt install git -y
+RUN apt install curl -y
+RUN apt install vim -y
 
-COPY package.json ./
-COPY yarn.lock ./
-
-USER root
-
-RUN npm install -g typescript
-RUN npm install -g @angular/cli --latest
-RUN npm install -g babel-cli
+# install globally dependencies
+RUN npm install -g typescript@3.2.4
 RUN npm install -g yarn
-RUN yarn
-RUN yarn start
+RUN npm install -g @angular/cli --latest
+RUN npm install -g http-server
+RUN npm install -g babel-cli
 
-COPY --chown=node:node . .
+# install and setup flagship-client
+RUN git clone https://github.com/vincentdu101/flagship-client.git ./flagship-client
 
-EXPOSE 4200
-
-CMD ["ng-serve"]
+WORKDIR flagship-client
+RUN git pull origin master
+RUN npm i --save-dev typescript@3.2.4
+RUN npm install
+# RUN ng update --all --force
+RUN ng build --prod
